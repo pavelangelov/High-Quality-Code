@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
+[assembly: InternalsVisibleTo("School.Tests")]
 namespace School
 {
     public class Course
@@ -19,13 +21,7 @@ namespace School
             this.Name = name;
             this.Students = new HashSet<Student>();
         }
-
-        public Course(string name, HashSet<Student> students)
-            : this(name)
-        {
-            this.Students = students;
-        }
-
+        
         public string Name
         {
             get
@@ -54,15 +50,11 @@ namespace School
                 {
                     throw new ArgumentNullException("students");
                 }
-                else if (value.Count > Students_MaxCount)
-                {
-                    throw new ArgumentOutOfRangeException("students");
-                }
                 this.students = value;
             }
         }
 
-        public void AddStudent(Student studentToAdd)
+        internal void AddStudent(Student studentToAdd)
         {
             if (studentToAdd == null)
             {
@@ -77,7 +69,7 @@ namespace School
             this.students.Add(studentToAdd);
         }
 
-        public void RemoveStudent(Student studentToRemove)
+        internal void RemoveStudent(Student studentToRemove)
         {
             if (studentToRemove == null)
             {

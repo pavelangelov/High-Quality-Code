@@ -6,16 +6,17 @@ using System.Threading.Tasks;
 
 namespace School
 {
-
     public class Student
     {
         private string name;
         private int id;
+        private ICollection<Course> courses;
 
         public Student(string name)
         {
             this.Name = name;
             this.id = Generator.GeneradeId();
+            this.courses = new HashSet<Course>();
         }
 
         public string Name
@@ -50,9 +51,33 @@ namespace School
             }
         }
 
-        public override string ToString()
+        public void AddCourse(Course course)
         {
-            return string.Format("Name: {0}, ID: {1}", this.Name, this.Id);
+            if (course == null)
+            {
+                throw new ArgumentNullException("course");
+            }
+            this.courses.Add(course);
+            course.AddStudent(this);
+        }
+
+        public void RemoveCourse(Course course)
+        {
+            if (course == null)
+            {
+                throw new ArgumentNullException("course");
+            }
+            this.courses.Remove(course);
+            course.RemoveStudent(this);
+        }
+
+        /// <summary>
+        /// View student courses
+        /// </summary>
+        /// <returns>List<Course></Course></returns>
+        public List<Course> ViewCourses()
+        {
+            return new List<Course>(this.courses);
         }
     }
 }
