@@ -1,0 +1,4 @@
+Santase.Tests.DeckTests.CardsLeft_ShouldReturnAllCards_WhenDeckIsInit
+Santase.Tests.DeckTests.ChangeTrumpCard_ShouldWorkCorrectly
+Santase.Tests.DeckTests.GetNextCard_ShouldRemoveLastCardOfTheDeck
+Santase.Tests.DeckTests.GetNextCard_ShouldThrow_IfThereIsNoMoreCards
