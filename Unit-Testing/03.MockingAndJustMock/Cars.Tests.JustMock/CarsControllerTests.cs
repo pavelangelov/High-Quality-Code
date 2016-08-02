@@ -142,8 +142,7 @@
         public void Search_ShouldReturnNull_IfConditionIsIncorrect()
         {
             string condition = "asd";
-            Mock.Arrange(() => this.carsData.Search(Arg.AnyString)).Returns(this.carsData.Search(condition));
-
+            Mock.Arrange(() => this.carsData.Search(Arg.AnyString)).DoNothing();
             var searchResult = this.controller.Search(condition);
 
             Assert.IsNull(searchResult.Model);
@@ -152,10 +151,8 @@
         [TestMethod]
         public void Search_ShouldReturnCollection_IfConditionIsCorrect()
         {
-
-            string condition = "make";
-
-            var searchResult = this.controller.Search(condition);
+            Mock.Arrange(() => this.carsData.Search(Arg.Matches<string>(x => x == "make" || x == "model"))).Returns(new List<Car>());
+            var searchResult = this.controller.Search("make");
 
             Assert.IsNotNull(searchResult.Model);
         }
