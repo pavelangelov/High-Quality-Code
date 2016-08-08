@@ -1,5 +1,7 @@
 ﻿using System;
+
 using NUnit.Framework;
+
 using Cosmetics.Products;
 using Cosmetics.Common;
 using Cosmetics.Contracts;
