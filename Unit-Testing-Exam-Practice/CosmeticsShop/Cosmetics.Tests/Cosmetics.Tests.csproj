@@ -92,6 +92,10 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Engine\CosmeticsFactoryTests\CreateCategory_Should.cs" />
+    <Compile Include="Engine\CosmeticsFactoryTests\CreateShampoo_Should.cs" />
+    <Compile Include="Engine\CosmeticsFactoryTests\CreateToothpaste_Should.cs" />
+    <Compile Include="Engine\CosmeticsFactoryTests\ShoppingCart_Should.cs" />
     <Compile Include="Products\CategoryTests\AddCosmetics_Should.cs" />
     <Compile Include="Products\CategoryTests\Constructor_Should.cs" />
     <Compile Include="Products\CategoryTests\RemoveCosmetics_Should.cs" />
@@ -112,6 +116,7 @@
       <Name>Cosmetics</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>

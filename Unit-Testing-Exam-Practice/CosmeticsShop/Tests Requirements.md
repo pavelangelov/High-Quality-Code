@@ -42,3 +42,12 @@
   - RemoveProduct should throw NullReferenceException, if passed parameter is null.
   - RemoveProduct should remove product, if passed parameter is correct.
   - TotalPrice should return right result.
+
+  ## Class - Cosmetics.Engine.CosmeticsFactory
+
+### Test cases:
+
+  - CreateCategory should return new Category.
+  - CreateShampoo should return new Shampoo and all properties must have correct value.
+  - CreateToothpaste should return new Thoothpaste and all properties must have correct value.
+  - ShoppingCart should return new ShoppingCart.
