@@ -28,7 +28,7 @@
 
   ## Class - Cosmetics.Products.Toothpaste
 
- ### Test cases:
+### Test cases:
 
   - Constructor should throw IndexOutOfRangeException, if any Ingredient.Length is invalid.
   - Constructor should set Ingredients, if passed parameter is correct.
