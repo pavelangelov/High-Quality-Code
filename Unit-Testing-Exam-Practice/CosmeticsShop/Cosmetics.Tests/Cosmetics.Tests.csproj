@@ -96,6 +96,9 @@
     <Compile Include="Products\CategoryTests\Constructor_Should.cs" />
     <Compile Include="Products\CategoryTests\RemoveCosmetics_Should.cs" />
     <Compile Include="Products\ProductTests\Constructor_Should.cs" />
+    <Compile Include="Products\ShoppingCardTests\AddProduct_Should.cs" />
+    <Compile Include="Products\ShoppingCardTests\RemoveProduct_Should.cs" />
+    <Compile Include="Products\ShoppingCardTests\TotalPrice_Should.cs" />
     <Compile Include="Products\ToothpasteTests\Constructor_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
