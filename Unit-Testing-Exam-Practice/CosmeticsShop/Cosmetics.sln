@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmetics", "Cosmetics\Cosmetics.csproj", "{B005C0B3-5C89-45A7-9BE1-FAB966806F40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmetics.Tests", "Cosmetics.Tests\Cosmetics.Tests.csproj", "{CBB52EF9-C2AF-4661-9AF8-170A82432B50}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{49A0A80D-EE73-497C-88DC-4FCAC7264C27}"
+	ProjectSection(SolutionItems) = preProject
+		Tests Requirements.md = Tests Requirements.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B005C0B3-5C89-45A7-9BE1-FAB966806F40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B005C0B3-5C89-45A7-9BE1-FAB966806F40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B005C0B3-5C89-45A7-9BE1-FAB966806F40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B005C0B3-5C89-45A7-9BE1-FAB966806F40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBB52EF9-C2AF-4661-9AF8-170A82432B50}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBB52EF9-C2AF-4661-9AF8-170A82432B50}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBB52EF9-C2AF-4661-9AF8-170A82432B50}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBB52EF9-C2AF-4661-9AF8-170A82432B50}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
