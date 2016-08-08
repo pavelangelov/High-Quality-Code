@@ -10,6 +10,9 @@
  - Constructor should set Name, if passed parameter is correct.
  - AddCosmetics should throw NullReferenceException, when passed parameter is null.
  - AddCosmetics should add product, if passed parameter is correct.
+ - RemoveCosmetics should throw NullReferenceException, when passed parameter is null.
+ - RemoveCosmetics should throw InvalidOperationException, if collection does`t contain the product.
+ - RemoveCosmetics should remove product, if passed parameter is correct.
 
  ## Class - Cosmetics.Products.Product
 
