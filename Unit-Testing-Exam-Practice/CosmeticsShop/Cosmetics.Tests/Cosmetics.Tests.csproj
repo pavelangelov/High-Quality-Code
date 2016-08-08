@@ -95,6 +95,7 @@
     <Compile Include="Products\CategoryTests\AddCosmetics_Should.cs" />
     <Compile Include="Products\CategoryTests\Constructor_Should.cs" />
     <Compile Include="Products\CategoryTests\RemoveCosmetics_Should.cs" />
+    <Compile Include="Products\ProductTests\Constructor_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
