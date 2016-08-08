@@ -32,3 +32,13 @@
 
   - Constructor should throw IndexOutOfRangeException, if any Ingredient.Length is invalid.
   - Constructor should set Ingredients, if passed parameter is correct.
+
+  ## Class - Cosmetics.Products.ShoppingCart
+
+### Test cases:
+
+  - AddProduct should throw NullReferenceException, if passed parameter is null.
+  - AddProduct should add product, if passed parameter is correct.
+  - RemoveProduct should throw NullReferenceException, if passed parameter is null.
+  - RemoveProduct should remove product, if passed parameter is correct.
+  - TotalPrice should return right result.
