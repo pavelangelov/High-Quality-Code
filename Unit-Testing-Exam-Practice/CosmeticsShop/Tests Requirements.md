@@ -26,7 +26,7 @@
  - Constructor should throw IndexOutOfRangeException, when the Branch.Length is greather than 10.
  - Constructor should create object with all properties, if passed parameters are correct.
 
- ## Class - Cosmetics.Products.Toothpaste
+  ## Class - Cosmetics.Products.Toothpaste
 
  ### Test cases:
 
