@@ -9,7 +9,7 @@
     using Cosmetics.Contracts;
     using Cosmetics.Products;
 
-    public sealed class CosmeticsEngine : IEngine
+    public  class CosmeticsEngine : IEngine
     {
         private const string InvalidCommand = "Invalid command name: {0}!";
         private const string CategoryExists = "Category with name {0} already exists!";
@@ -33,13 +33,21 @@
 
         private readonly ICosmeticsFactory factory;
         private readonly IShoppingCart shoppingCart;
-        private readonly IDictionary<string, ICategory> categories;
-        private readonly IDictionary<string, IProduct> products;
+        protected readonly IDictionary<string, ICategory> categories;
+        protected readonly IDictionary<string, IProduct> products;
 
         private CosmeticsEngine()
         {
             this.factory = new CosmeticsFactory();
             this.shoppingCart = new ShoppingCart();
+            this.categories = new Dictionary<string, ICategory>();
+            this.products = new Dictionary<string, IProduct>();
+        }
+
+        public CosmeticsEngine(ICosmeticsFactory factory, IShoppingCart shoppingCart)
+        {
+            this.factory = factory;
+            this.shoppingCart = shoppingCart;
             this.categories = new Dictionary<string, ICategory>();
             this.products = new Dictionary<string, IProduct>();
         }

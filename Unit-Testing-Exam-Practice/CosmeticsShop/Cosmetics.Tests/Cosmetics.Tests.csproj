@@ -92,10 +92,18 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Engine\CosmeticsEngineTests\AddToCategory_Should.cs" />
+    <Compile Include="Engine\CosmeticsEngineTests\AddToShoppingCart_Should.cs" />
+    <Compile Include="Engine\CosmeticsEngineTests\CreateCategory_Should.cs" />
+    <Compile Include="Engine\CosmeticsEngineTests\CreateShampoo_Should.cs" />
+    <Compile Include="Engine\CosmeticsEngineTests\CreateToothpaste_Should.cs" />
+    <Compile Include="Engine\CosmeticsEngineTests\RemoveFromCategory_Should.cs" />
+    <Compile Include="Engine\CosmeticsEngineTests\ShowCategory_Should.cs" />
     <Compile Include="Engine\CosmeticsFactoryTests\CreateCategory_Should.cs" />
     <Compile Include="Engine\CosmeticsFactoryTests\CreateShampoo_Should.cs" />
     <Compile Include="Engine\CosmeticsFactoryTests\CreateToothpaste_Should.cs" />
     <Compile Include="Engine\CosmeticsFactoryTests\ShoppingCart_Should.cs" />
+    <Compile Include="MockedCosmeticsEngine.cs" />
     <Compile Include="Products\CategoryTests\AddCosmetics_Should.cs" />
     <Compile Include="Products\CategoryTests\Constructor_Should.cs" />
     <Compile Include="Products\CategoryTests\RemoveCosmetics_Should.cs" />
