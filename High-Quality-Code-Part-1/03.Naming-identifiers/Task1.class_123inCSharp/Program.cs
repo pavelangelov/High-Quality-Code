@@ -14,7 +14,7 @@ namespace Task1.class_123inCSharp
                 Console.WriteLine(output);
             }
         }
-        public static void Метод_За_Вход()
+        public static void Main()
         {
             Foo.Bar fooBar = new Foo.Bar();
             fooBar.PrintTrueOrFalseToConsole(true);
