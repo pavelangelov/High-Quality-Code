@@ -59,10 +59,10 @@
   - CreateCategory should call CreateCategory from factory, if input string is passed correctly.
   - AddToCategory should call AddCosmetics from Category.
   - RemoveFromCategory should call RemoveCosmetics from Category, if product exist.
-  - RemoveFromCategory shouldn`t call RemoveCosmetics from Category, if product or category doesn`t exist.
+  - RemoveFromCategory shouldn't call RemoveCosmetics from Category, if product or category doesn`t exist.
   - ShowCategory should call Print from category.
   - CreateShampoo should call CreateShampoo from factory.
   - CreateToothpaste should call CreateToothpaste from factory.
   - AddToShoppingCart should call AddProduct from shoppingCart.
   - RemoveFromShoppingCart should call RemoveProduct from shoppingCart, if product exist.
-  - RemoveFromShoppingCart shouldn`t call RemoveProduct from shoppingCart, if product doesn`t exist.
+  - RemoveFromShoppingCart shouldn't call RemoveProduct from shoppingCart, if product doesn`t exist.
