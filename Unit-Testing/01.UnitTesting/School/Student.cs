@@ -54,6 +54,7 @@ namespace School
             {
                 throw new ArgumentNullException("course");
             }
+
             this.courses.Add(course);
             course.AddStudent(this);
         }
@@ -64,6 +65,7 @@ namespace School
             {
                 throw new ArgumentNullException("course");
             }
+
             this.courses.Remove(course);
             course.RemoveStudent(this);
         }
