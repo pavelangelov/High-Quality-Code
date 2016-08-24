@@ -32,12 +32,22 @@
             return builder.ToString();
         }
 
+        /// <summary>
+        /// Converts the string to boolean. If the string is truthy return 'true', else return 'false'.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         public static bool ToBoolean(this string input)
         {
             var stringTrueValues = new[] { "true", "ok", "yes", "1", "да" };
             return stringTrueValues.Contains(input.ToLower());
         }
 
+        /// <summary>
+        /// Converts the string representation of a number to its 16-bit signed integer equivalent.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         public static short ToShort(this string input)
         {
             short shortValue;
@@ -45,6 +55,11 @@
             return shortValue;
         }
 
+        /// <summary>
+        /// Converts the string representation of a number to its 32-bit signed integer equivalent.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         public static int ToInteger(this string input)
         {
             int integerValue;
@@ -52,6 +67,11 @@
             return integerValue;
         }
 
+        /// <summary>
+        /// Converts the string representation of a number to its 64-bit signed integer equivalent.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         public static long ToLong(this string input)
         {
             long longValue;
@@ -59,6 +79,11 @@
             return longValue;
         }
 
+        /// <summary>
+        /// Converts the specified string representation of a date and time to its DateTime equivalent.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         public static DateTime ToDateTime(this string input)
         {
             DateTime dateTimeValue;
@@ -66,6 +91,11 @@
             return dateTimeValue;
         }
 
+        /// <summary>
+        /// Returns a copy of this string with capitalized first letter.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         public static string CapitalizeFirstLetter(this string input)
         {
             if (string.IsNullOrEmpty(input))
@@ -76,6 +106,14 @@
             return input.Substring(0, 1).ToUpper(CultureInfo.CurrentCulture) + input.Substring(1, input.Length - 1);
         }
 
+        /// <summary>
+        /// Returns the string between passed start and end strings.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="startString"></param>
+        /// <param name="endString"></param>
+        /// <param name="startFrom"></param>
+        /// <returns></returns>
         public static string GetStringBetween(this string input, string startString, string endString, int startFrom = 0)
         {
             input = input.Substring(startFrom);
@@ -100,6 +138,11 @@
             return input.Substring(startPosition, endPosition - startPosition);
         }
 
+        /// <summary>
+        /// Replace all cyrillic letters with their latin equivalent
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         public static string ConvertCyrillicToLatinLetters(this string input)
         {
             var bulgarianLetters = new[]
@@ -122,6 +165,11 @@
             return input;
         }
 
+        /// <summary>
+        /// Replace all latin letters with their cyrillic equivalent
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         public static string ConvertLatinToCyrillicKeyboard(this string input)
         {
             var latinLetters = new[]
@@ -146,23 +194,44 @@
             return input;
         }
 
+        /// <summary>
+        /// Returns new string, contains only latin letters, numbers and underscore. All other symbols are removed. 
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         public static string ToValidUsername(this string input)
         {
             input = input.ConvertCyrillicToLatinLetters();
             return Regex.Replace(input, @"[^a-zA-z0-9_\.]+", string.Empty);
         }
 
+        /// <summary>
+        /// Returns new string, where all white spaces are replaced with '-', and all symbols different from latin letters, numbers and underscore, are removed.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         public static string ToValidLatinFileName(this string input)
         {
             input = input.Replace(" ", "-").ConvertCyrillicToLatinLetters();
             return Regex.Replace(input, @"[^a-zA-z0-9_\.\-]+", string.Empty);
         }
 
+        /// <summary>
+        /// Retrieves a substring from this instance. The substring starts at a character at possition 0 and has a sprecified length.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="charsCount"></param>
+        /// <returns></returns>
         public static string GetFirstCharacters(this string input, int charsCount)
         {
             return input.Substring(0, Math.Min(input.Length, charsCount));
         }
 
+        /// <summary>
+        /// Returns the file extension
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
         public static string GetFileExtension(this string fileName)
         {
             if (string.IsNullOrWhiteSpace(fileName))
@@ -179,6 +248,11 @@
             return fileParts.Last().Trim().ToLower();
         }
 
+        /// <summary>
+        /// Returns the content type of the file by given file extension.
+        /// </summary>
+        /// <param name="fileExtension"></param>
+        /// <returns></returns>
         public static string ToContentType(this string fileExtension)
         {
             var fileExtensionToContentType = new Dictionary<string, string>
@@ -203,6 +277,11 @@
             return "application/octet-stream";
         }
 
+        /// <summary>
+        /// Copies a specified numbers of bytes to new byte array.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         public static byte[] ToByteArray(this string input)
         {
             var bytesArray = new byte[input.Length * sizeof(char)];
