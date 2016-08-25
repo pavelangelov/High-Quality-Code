@@ -47,7 +47,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="bunnies.cs" />
     <Compile Include="event.cs" />
+    <Compile Include="FormatedBunnies.cs" />
     <Compile Include="FormatedEvent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
