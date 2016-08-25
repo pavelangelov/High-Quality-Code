@@ -5,11 +5,11 @@
 
     using Wintellect.PowerCollections;
 
-    class Event : IComparable
+    internal class Event : IComparable
     {
-        public DateTime date;
-        public string title;
-        public string location;
+        private DateTime date;
+        private string title;
+        private string location;
 
         public Event(DateTime date, string title, string location)
         {
@@ -45,22 +45,23 @@
         public override string ToString()
         {
             StringBuilder toString = new StringBuilder();
-            toString.Append(date.ToString("yyyy-MM-ddTHH:mm:ss"));
-            toString.Append(" | " + title);
+            toString.Append(this.date.ToString("yyyy-MM-ddTHH:mm:ss"));
+            toString.Append(" | " + this.title);
 
-            if (location != null && location != "")
+            if (this.location != null && this.location != "")
             {
-                toString.Append(" | " + location);
+                toString.Append(" | " + this.location);
             }
+
             return toString.ToString();
         }
     }
 
-    class Program
+    internal class Program
     {
-        static StringBuilder output = new StringBuilder();
+        private static StringBuilder output = new StringBuilder();
 
-        static class Messages
+        internal static class Messages
         {
             public static void EventAdded()
             {
@@ -93,16 +94,16 @@
             }
         }
 
-        class EventHolder
+        internal class EventHolder
         {
-            MultiDictionary<string, Event> byTitle = new MultiDictionary<string, Event>(true);
-            OrderedBag<Event> byDate = new OrderedBag<Event>();
+            private MultiDictionary<string, Event> byTitle = new MultiDictionary<string, Event>(true);
+            private OrderedBag<Event> byDate = new OrderedBag<Event>();
 
             public void AddEvent(DateTime date, string title, string location)
             {
                 Event newEvent = new Event(date, title, location);
-                byTitle.Add(title.ToLower(), newEvent);
-                byDate.Add(newEvent);
+                this.byTitle.Add(title.ToLower(), newEvent);
+                this.byDate.Add(newEvent);
                 Messages.EventAdded();
             }
 
@@ -110,19 +111,19 @@
             {
                 string title = titleToDelete.ToLower();
                 int removed = 0;
-                foreach (var eventToRemove in byTitle[title])
+                foreach (var eventToRemove in this.byTitle[title])
                 {
                     removed++;
-                    byDate.Remove(eventToRemove);
+                    this.byDate.Remove(eventToRemove);
                 }
 
-                byTitle.Remove(title);
+                this.byTitle.Remove(title);
                 Messages.EventDeleted(removed);
             }
 
             public void ListEvents(DateTime date, int count)
             {
-                OrderedBag<Event>.View eventsToShow = byDate.RangeFrom(new Event(date, "", ""), true);
+                OrderedBag<Event>.View eventsToShow = this.byDate.RangeFrom(new Event(date, "", ""), true);
                 int showed = 0;
                 foreach (var eventToShow in eventsToShow)
                 {
@@ -142,9 +143,9 @@
             }
         }
 
-        static EventHolder events = new EventHolder();
+        private static EventHolder events = new EventHolder();
 
-        static void Main()
+        public static void Main()
         {
             while (ExecuteNextCommand())
             {
@@ -182,7 +183,6 @@
         }
 
         private static void ListEvents(string command)
-
         {
             int pipeIndex = command.IndexOf('|');
             DateTime date = GetDate(command, "ListEvents");
@@ -207,7 +207,6 @@
 
             events.AddEvent(date, title, location);
         }
-
 
         private static void GetParameters(string commandForExecution, string commandType, out DateTime dateAndTime, out string eventTitle, out string eventLocation)
         {
