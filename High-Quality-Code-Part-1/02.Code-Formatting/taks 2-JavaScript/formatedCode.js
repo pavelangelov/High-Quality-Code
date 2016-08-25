@@ -1,12 +1,15 @@
-b = navigator.appName;
-addScroll = false;
+var b = navigator.appName,
+    addScroll = false;
+
 if ((navigator.userAgent.indexOf('MSIE 5') > 0) || (navigator.userAgent.indexOf('MSIE 6')) > 0) {
     addScroll = true;
 }
-var off = 0;
-var txt = "";
-var pX = 0;
-var pY = 0;
+
+var off = 0,
+    txt = "",
+    pX = 0,
+    pY = 0;
+
 document.onmousemove = mouseMove;
 
 if (b == "Netscape") {
@@ -21,6 +24,7 @@ function mouseMove(evn) {
         pX = event.x - 5;
         pY = event.y;
     }
+
     if (b == "Netscape") {
         if (document.layers['ToolTip'].visibility == 'show') {
             PopTip();
@@ -87,7 +91,7 @@ function ShowMenu1() {
         theLayer.style.visibility = 'visible';
     }
 }
-// 
+
 function HideMenu2() {
     if (b == "Netscape") {
         document.layers['menu2'].visibility = 'hide';
