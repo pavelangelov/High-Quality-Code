@@ -79,7 +79,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="MinesGame.cs" />
+    <Compile Include="Score.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
