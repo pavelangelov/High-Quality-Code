@@ -4,7 +4,7 @@
     using System.Collections.Generic;
 
     public class MinesGame
-	{
+    {
         private const int MaxCellsToOpen = 35;
 
         private static List<Score> bestPlayers = new List<Score>(6);
@@ -18,48 +18,48 @@
         private static int col = 0;
 
         public static void Main()
-		{
-			string command = string.Empty;
+        {
+            string command = string.Empty;
 
-			CreateGameField();
+            CreateGameField();
 
-			PutTheBombs();
-			
-			do
-			{
-				if (startNewGame)
-				{
+            PutTheBombs();
+
+            do
+            {
+                if (startNewGame)
+                {
                     NewGame();
-				}
+                }
 
-				Console.Write("Enter row and column : ");
-				command = Console.ReadLine().Trim();
-				if (command.Length >= 3)
-				{
-					if (int.TryParse(command[0].ToString(), out row) &&
-					    int.TryParse(command[2].ToString(), out col) &&
-						row <= gameField.GetLength(0) && 
+                Console.Write("Enter row and column : ");
+                command = Console.ReadLine().Trim();
+                if (command.Length >= 3)
+                {
+                    if (int.TryParse(command[0].ToString(), out row) &&
+                        int.TryParse(command[2].ToString(), out col) &&
+                        row <= gameField.GetLength(0) &&
                         col <= gameField.GetLength(1))
-					{
-						command = "Turn";
-					}
-				}
+                    {
+                        command = "Turn";
+                    }
+                }
 
                 ProceedCommand(command);
 
-				if (gameOver)
-				{
+                if (gameOver)
+                {
                     EndGame();
-				}
+                }
 
-				if (haveWinner)
-				{
+                if (haveWinner)
+                {
                     EndGameWithWinner();
-				}
-			}
-			while (command != "Exit");
-			Console.Read();
-		}
+                }
+            }
+            while (command != "Exit");
+            Console.Read();
+        }
 
         private static void NewGame()
         {
@@ -177,30 +177,30 @@
             }
         }
 
-		private static void ShowHighscore()
-		{
+        private static void ShowHighscore()
+        {
             bestPlayers.Sort((Score s1, Score s2) => s2.Name.CompareTo(s1.Name));
             bestPlayers.Sort((Score s1, Score s2) => s2.Points.CompareTo(s1.Points));
 
             Console.WriteLine("\nPoints:");
-			if (bestPlayers.Count > 0)
-			{
-				for (int i = 0; i < bestPlayers.Count; i++)
-				{
-					Console.WriteLine(
+            if (bestPlayers.Count > 0)
+            {
+                for (int i = 0; i < bestPlayers.Count; i++)
+                {
+                    Console.WriteLine(
                                       "{0}. {1} --> {2} cells opened.",
-						              i + 1, 
+                                      i + 1,
                                       bestPlayers[i].Name,
                                       bestPlayers[i].Points);
-				}
+                }
 
-				Console.WriteLine();
-			}
-			else
-			{
-				Console.WriteLine("No scores!\n");
-			}
-		}
+                Console.WriteLine();
+            }
+            else
+            {
+                Console.WriteLine("No scores!\n");
+            }
+        }
 
         private static void RestartTheGame()
         {
@@ -211,162 +211,162 @@
             startNewGame = false;
         }
 
-		private static void GetCellValue(char[,] gameField, char[,] bombs)
-		{
-			char numberOfBombs = BombsAroundCell(bombs);
-			bombs[row, col] = numberOfBombs;
-			gameField[row, col] = numberOfBombs;
-		}
+        private static void GetCellValue(char[,] gameField, char[,] bombs)
+        {
+            char numberOfBombs = BombsAroundCell(bombs);
+            bombs[row, col] = numberOfBombs;
+            gameField[row, col] = numberOfBombs;
+        }
 
-		private static void PrintGameFieldToConsole(char[,] board)
-		{
-			int rows = board.GetLength(0);
-			int cols = board.GetLength(1);
-			Console.WriteLine("\n    0 1 2 3 4 5 6 7 8 9");
-			Console.WriteLine("   ---------------------");
-			for (int i = 0; i < rows; i++)
-			{
-				Console.Write("{0} | ", i);
-				for (int j = 0; j < cols; j++)
-				{
-					Console.Write(string.Format("{0} ", board[i, j]));
-				}
+        private static void PrintGameFieldToConsole(char[,] board)
+        {
+            int rows = board.GetLength(0);
+            int cols = board.GetLength(1);
+            Console.WriteLine("\n    0 1 2 3 4 5 6 7 8 9");
+            Console.WriteLine("   ---------------------");
+            for (int i = 0; i < rows; i++)
+            {
+                Console.Write("{0} | ", i);
+                for (int j = 0; j < cols; j++)
+                {
+                    Console.Write(string.Format("{0} ", board[i, j]));
+                }
 
-				Console.Write("|");
-				Console.WriteLine();
-			}
+                Console.Write("|");
+                Console.WriteLine();
+            }
 
-			Console.WriteLine("   ---------------------\n");
-		}
+            Console.WriteLine("   ---------------------\n");
+        }
 
-		private static void CreateGameField()
-		{
-			int boardRows = 5;
-			int boardColumns = 10;
-			gameField = new char[boardRows, boardColumns];
-			for (int i = 0; i < boardRows; i++)
-			{
-				for (int j = 0; j < boardColumns; j++)
-				{
+        private static void CreateGameField()
+        {
+            int boardRows = 5;
+            int boardColumns = 10;
+            gameField = new char[boardRows, boardColumns];
+            for (int i = 0; i < boardRows; i++)
+            {
+                for (int j = 0; j < boardColumns; j++)
+                {
                     gameField[i, j] = '?';
-				}
-			}
-		}
+                }
+            }
+        }
 
-		private static void PutTheBombs()
-		{
-			int rows = 5;
-			int cols = 10;
-			bombs = new char[rows, cols];
+        private static void PutTheBombs()
+        {
+            int rows = 5;
+            int cols = 10;
+            bombs = new char[rows, cols];
 
-			for (int i = 0; i < rows; i++)
-			{
-				for (int j = 0; j < cols; j++)
-				{
-					bombs[i, j] = '-';
-				}
-			}
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < cols; j++)
+                {
+                    bombs[i, j] = '-';
+                }
+            }
 
-			List<int> bombsPossitions = new List<int>();
-			while (bombsPossitions.Count < 15)
-			{
-				Random random = new Random();
-				int randomNumber = random.Next(50);
-				if (!bombsPossitions.Contains(randomNumber))
-				{
-					bombsPossitions.Add(randomNumber);
-				}
-			}
+            List<int> bombsPossitions = new List<int>();
+            while (bombsPossitions.Count < 15)
+            {
+                Random random = new Random();
+                int randomNumber = random.Next(50);
+                if (!bombsPossitions.Contains(randomNumber))
+                {
+                    bombsPossitions.Add(randomNumber);
+                }
+            }
 
-			foreach (var bombPossition in bombsPossitions)
-			{
-				int col = bombPossition / cols;
-				int row = bombPossition % cols;
-				if (row == 0 && bombPossition != 0)
-				{
-					col--;
-					row = cols;
-				}
-				else
-				{
-					row++;
-				}
+            foreach (var bombPossition in bombsPossitions)
+            {
+                int col = bombPossition / cols;
+                int row = bombPossition % cols;
+                if (row == 0 && bombPossition != 0)
+                {
+                    col--;
+                    row = cols;
+                }
+                else
+                {
+                    row++;
+                }
 
-				bombs[col, row - 1] = '*';
-			}
-		}
-        
-		private static char BombsAroundCell(char[,] field)
-		{
-			int result = 0;
-			int rows = field.GetLength(0);
-			int cols = field.GetLength(1);
+                bombs[col, row - 1] = '*';
+            }
+        }
 
-			if (row - 1 >= 0)
-			{
-				if (field[row - 1, col] == '*')
-				{ 
-					result++; 
-				}
-			}
+        private static char BombsAroundCell(char[,] field)
+        {
+            int result = 0;
+            int rows = field.GetLength(0);
+            int cols = field.GetLength(1);
 
-			if (row + 1 < rows)
-			{
-				if (field[row + 1, col] == '*')
-				{ 
-					result++; 
-				}
-			}
+            if (row - 1 >= 0)
+            {
+                if (field[row - 1, col] == '*')
+                {
+                    result++;
+                }
+            }
 
-			if (col - 1 >= 0)
-			{
-				if (field[row, col - 1] == '*')
-				{ 
-					result++;
-				}
-			}
+            if (row + 1 < rows)
+            {
+                if (field[row + 1, col] == '*')
+                {
+                    result++;
+                }
+            }
 
-			if (col + 1 < cols)
-			{
-				if (field[row, col + 1] == '*')
-				{ 
-					result++;
-				}
-			}
+            if (col - 1 >= 0)
+            {
+                if (field[row, col - 1] == '*')
+                {
+                    result++;
+                }
+            }
 
-			if ((row - 1 >= 0) && (col - 1 >= 0))
-			{
-				if (field[row - 1, col - 1] == '*')
-				{ 
-					result++; 
-				}
-			}
+            if (col + 1 < cols)
+            {
+                if (field[row, col + 1] == '*')
+                {
+                    result++;
+                }
+            }
 
-			if ((row - 1 >= 0) && (col + 1 < cols))
-			{
-				if (field[row - 1, col + 1] == '*')
-				{ 
-					result++; 
-				}
-			}
+            if ((row - 1 >= 0) && (col - 1 >= 0))
+            {
+                if (field[row - 1, col - 1] == '*')
+                {
+                    result++;
+                }
+            }
 
-			if ((row + 1 < rows) && (col - 1 >= 0))
-			{
-				if (field[row + 1, col - 1] == '*')
-				{ 
-					result++; 
-				}
-			}
+            if ((row - 1 >= 0) && (col + 1 < cols))
+            {
+                if (field[row - 1, col + 1] == '*')
+                {
+                    result++;
+                }
+            }
 
-			if ((row + 1 < rows) && (col + 1 < cols))
-			{
-				if (field[row + 1, col + 1] == '*')
-				{ 
-					result++; 
-				}
-			}
+            if ((row + 1 < rows) && (col - 1 >= 0))
+            {
+                if (field[row + 1, col - 1] == '*')
+                {
+                    result++;
+                }
+            }
 
-			return char.Parse(result.ToString());
-		}
-	}
+            if ((row + 1 < rows) && (col + 1 < cols))
+            {
+                if (field[row + 1, col + 1] == '*')
+                {
+                    result++;
+                }
+            }
+
+            return char.Parse(result.ToString());
+        }
+    }
 }
