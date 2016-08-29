@@ -41,12 +41,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Bowl.cs" />
-    <Compile Include="Models\Carrot.cs" />
+    <Compile Include="Models\Vegetables\Carrot.cs" />
     <Compile Include="Models\Chef.cs" />
     <Compile Include="Models\Generator.cs" />
-    <Compile Include="Models\Potato.cs" />
+    <Compile Include="Models\Vegetables\Potato.cs" />
     <Compile Include="Models\Store.cs" />
-    <Compile Include="Models\Vegetable.cs" />
+    <Compile Include="Models\Vegetables\Vegetable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

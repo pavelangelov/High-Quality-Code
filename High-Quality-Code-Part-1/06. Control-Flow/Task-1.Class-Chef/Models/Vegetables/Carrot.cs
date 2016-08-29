@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Task_1.Class_Chef.Models
+﻿namespace Task_1.Class_Chef.Models.Vegetables
 {
     public class Carrot : Vegetable
     {

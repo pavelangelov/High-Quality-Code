@@ -1,4 +1,4 @@
-﻿namespace Task_1.Class_Chef.Models
+﻿namespace Task_1.Class_Chef.Models.Vegetables
 {
     using System;
     using System.Collections.Generic;

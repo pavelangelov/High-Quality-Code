@@ -3,6 +3,8 @@
     using System;
     using System.Collections.Generic;
 
+    using Vegetables;
+
     public  class Bowl
     {
         private readonly double capacity;

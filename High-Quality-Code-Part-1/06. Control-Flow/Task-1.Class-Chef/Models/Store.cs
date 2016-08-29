@@ -1,5 +1,7 @@
 ﻿namespace Task_1.Class_Chef.Models
 {
+    using Vegetables;
+
     public static class Store
     {
         public static Bowl GetBowl()

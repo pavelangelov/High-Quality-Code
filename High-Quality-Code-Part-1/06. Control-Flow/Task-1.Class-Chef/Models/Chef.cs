@@ -1,5 +1,7 @@
 ﻿namespace Task_1.Class_Chef.Models
 {
+    using Vegetables;
+
     public class Chef
     {
         private Bowl GetBowl()
