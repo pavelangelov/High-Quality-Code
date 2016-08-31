@@ -1,4 +1,4 @@
-﻿namespace Task2.Make_ЧуекinCSharp
+﻿namespace Task2.CreatePerson
 {
     public enum GenderType
     {

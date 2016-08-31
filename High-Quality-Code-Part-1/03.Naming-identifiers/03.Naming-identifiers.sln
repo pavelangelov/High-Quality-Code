@@ -5,9 +5,9 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task4.Re-factor", "Application1\Task4.Re-factor.csproj", "{B20E8DFD-5F12-4358-849D-1F25806E9052}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task1.class_123inCSharp", "Task1.class_123inCSharp\Task1.class_123inCSharp.csproj", "{FE5FE8D1-75D6-486A-B5FB-500BB3FC592F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task1.PrintBoolean", "Task1.PrintBoolean\Task1.PrintBoolean.csproj", "{FE5FE8D1-75D6-486A-B5FB-500BB3FC592F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task2.Make_ЧуекinCSharp", "Task2.Make_ЧуекinCSharp\Task2.Make_ЧуекinCSharp.csproj", "{1EA0C2F3-603B-457A-A3A3-DE15D672E9A8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task2.CreatePerson", "Task2.CreatePerson\Task2.CreatePerson.csproj", "{1EA0C2F3-603B-457A-A3A3-DE15D672E9A8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

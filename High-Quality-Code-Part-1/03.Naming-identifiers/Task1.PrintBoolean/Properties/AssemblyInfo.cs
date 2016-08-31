@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Task2.Make_ЧуекinCSharp")]
+[assembly: AssemblyTitle("Task1.PrintBoolean")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Task2.Make_ЧуекinCSharp")]
+[assembly: AssemblyProduct("Task1.PrintBoolean")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("1ea0c2f3-603b-457a-a3a3-de15d672e9a8")]
+[assembly: Guid("fe5fe8d1-75d6-486a-b5fb-500bb3fc592f")]
 
 // Version information for an assembly consists of the following four values:
 //

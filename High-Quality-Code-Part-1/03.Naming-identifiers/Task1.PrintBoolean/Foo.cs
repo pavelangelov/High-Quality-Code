@@ -1,4 +1,4 @@
-﻿namespace Task1.Class_123inCSharp
+﻿namespace Task1.PrintBoolean
 {
     public class Foo
     {
