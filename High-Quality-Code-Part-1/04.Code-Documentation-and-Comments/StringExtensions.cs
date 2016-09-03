@@ -10,6 +10,11 @@
 
     public static class StringExtensions
     {
+        /// <summary>
+        /// Еncrypts the string by using MD5 algorithm. Visit "<see href="https://en.wikipedia.org/wiki/MD5"/>" for information about this algorithm.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns>Return his hexadecimal equivalent as String.</returns>
         public static string ToMd5Hash(this string input)
         {
             var md5Hash = MD5.Create();
@@ -110,9 +115,9 @@
         /// Returns the string between passed start and end strings.
         /// </summary>
         /// <param name="input"></param>
-        /// <param name="startString"></param>
-        /// <param name="endString"></param>
-        /// <param name="startFrom"></param>
+        /// <param name="startString">String, where to start.</param>
+        /// <param name="endString">String, where to finish.</param>
+        /// <param name="startFrom">Start index.</param>
         /// <returns></returns>
         public static string GetStringBetween(this string input, string startString, string endString, int startFrom = 0)
         {
@@ -220,7 +225,7 @@
         /// Retrieves a substring from this instance. The substring starts at a character at possition 0 and has a sprecified length.
         /// </summary>
         /// <param name="input"></param>
-        /// <param name="charsCount"></param>
+        /// <param name="charsCount">The number of symbols that will be copied.</param>
         /// <returns></returns>
         public static string GetFirstCharacters(this string input, int charsCount)
         {
