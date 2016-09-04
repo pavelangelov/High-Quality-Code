@@ -16,7 +16,7 @@
             }
         }
 
-        public void VisitCell(bool[,] matrix, int row, int col)
+        private void VisitCell(bool[,] matrix, int row, int col)
         {
             matrix[row, col] = true;
         }

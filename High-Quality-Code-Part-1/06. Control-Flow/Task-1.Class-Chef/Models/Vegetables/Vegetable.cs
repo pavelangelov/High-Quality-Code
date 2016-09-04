@@ -27,11 +27,13 @@
             }
         }
 
+        public abstract void Peel();
+
         /// <summary>
         /// Cut the vegetable.
         /// </summary>
         /// <param name="size">The size of every piece.</param>
-        public void Cutted(int size)
+        public void GetCutted(int size)
         {
             if (!isCutted)
             {
@@ -67,7 +69,5 @@
                 return null;
             }
         }
-
-        public abstract void Peel();
     }
 }

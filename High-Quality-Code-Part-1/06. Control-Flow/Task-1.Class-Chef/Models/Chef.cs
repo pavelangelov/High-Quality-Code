@@ -17,10 +17,13 @@
         private void Cut(Vegetable vegetable)
         {
             var piecesSize = 5;
-            vegetable.Cutted(piecesSize);
+            vegetable.GetCutted(piecesSize);
         }
 
-        public void Cook()
+        /// <summary>
+        /// Get bowl, potato and carrot from the Store. Peel and cut vegetables.
+        /// </summary>
+        public void MakeSalad()
         {
             Bowl bowl = GetBowl();
             Potato potato = GetPotato();

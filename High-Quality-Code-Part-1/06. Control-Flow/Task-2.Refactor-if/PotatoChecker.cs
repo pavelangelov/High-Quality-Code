@@ -2,6 +2,9 @@
 {
     public class PotatoChecker
     {
+        /// <summary>
+        /// Create Potato instance and if isn`t peeled and rotten, cook the potato.
+        /// </summary>
         public void CheckBeforeCook()
         {
             Potato potato = new Potato();

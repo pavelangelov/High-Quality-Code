@@ -7,12 +7,14 @@
 
     public  class Bowl
     {
+        private const double BowlCapacity = 1500;
+
         private readonly double capacity;
         private List<Vegetable> vegetables;
 
         public Bowl()
         {
-            this.capacity = 1500;
+            this.capacity = BowlCapacity;
             this.vegetables = new List<Vegetable>();
         }
 
