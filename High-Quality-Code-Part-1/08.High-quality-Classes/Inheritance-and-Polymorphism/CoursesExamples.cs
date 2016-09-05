@@ -1,28 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace InheritanceAndPolymorphism
+namespace InheritanceAndPolymorphism.Models
 {
     class CoursesExamples
     {
         static void Main()
         {
-            LocalCourse localCourse = new LocalCourse("Databases");
+            LocalCourse localCourse = new LocalCourse("Databases", "Svetlin Nakov", "Enterprise");
             Console.WriteLine(localCourse);
-
-            localCourse.Lab = "Enterprise";
+            
+            localCourse.AddStudents(new List<string>() { "Peter", "Maria" });
             Console.WriteLine(localCourse);
-
-            localCourse.Students = new List<string>() { "Peter", "Maria" };
-            Console.WriteLine(localCourse);
-
-            localCourse.TeacherName = "Svetlin Nakov";
+            
             localCourse.Students.Add("Milena");
             localCourse.Students.Add("Todor");
             Console.WriteLine(localCourse);
 
             OffsiteCourse offsiteCourse = new OffsiteCourse(
-                "PHP and WordPress Development", "Mario Peshev", 
+                "PHP and WordPress Development", "Mario Peshev", "Sofia", 
                 new List<string>() { "Thomas", "Ani", "Steve" });
             Console.WriteLine(offsiteCourse);
         }
