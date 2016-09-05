@@ -10,7 +10,7 @@ namespace InheritanceAndPolymorphism.Models
         private string name;
         private string teacherName;
         private IList<string> students;
-
+        
         protected Course(string courseName, string teacherName)
         {
             this.Name = courseName;
@@ -24,6 +24,9 @@ namespace InheritanceAndPolymorphism.Models
             this.Students = students;
         }
 
+        /// <summary>
+        /// The name of the course.
+        /// </summary>
         public string Name
         {
             get
@@ -40,6 +43,9 @@ namespace InheritanceAndPolymorphism.Models
             }
         }
 
+        /// <summary>
+        /// Teacher`s name.
+        /// </summary>
         public string TeacherName
         {
             get
@@ -56,6 +62,9 @@ namespace InheritanceAndPolymorphism.Models
             }
         }
 
+        /// <summary>
+        /// Enrolled student for this course.
+        /// </summary>
         public IList<string> Students
         {
             get
@@ -75,6 +84,10 @@ namespace InheritanceAndPolymorphism.Models
             }
         }
 
+        /// <summary>
+        /// Adds new student to the course.
+        /// </summary>
+        /// <param name="studentName">Student to add.</param>
         public virtual void Add(string studentName)
         {
             Validator.CheckForNullOrEmpty(studentName, "studentName");
@@ -83,6 +96,10 @@ namespace InheritanceAndPolymorphism.Models
             this.students.Add(studentName);
         }
 
+        /// <summary>
+        /// Adds group of students to the course.
+        /// </summary>
+        /// <param name="studentsToAdd">Students to add.</param>
         public virtual void AddStudents(IList<string> studentsToAdd)
         {
             Validator.CheckForNull(studentsToAdd, "studentsToAdd");

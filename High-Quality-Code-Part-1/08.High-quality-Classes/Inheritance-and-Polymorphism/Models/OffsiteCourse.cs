@@ -9,17 +9,34 @@ namespace InheritanceAndPolymorphism.Models
     {
         private string town;
 
+        /// <summary>
+        /// Create new instance of OffsiteCourse.
+        /// </summary>
+        /// <param name="courseName">The name of the course.</param>
+        /// <param name="teacherName">The name of the teacher of the course.</param>
+        /// <param name="town">The town where the course is conducted.</param>
         public OffsiteCourse(string courseName, string teacherName, string town)
             : base(courseName, teacherName)
         {
             this.Town = town;
         }
 
+        /// <summary>
+        /// Create new instance of OffsiteCourse.
+        /// </summary>
+        /// <param name="courseName">The name of the course.</param>
+        /// <param name="teacherName">The name of the teacher of the course.</param>
+        /// <param name="town">The town where the course is conducted.</param>
+        /// <param name="students">Enrolled student for this course.</param>
         public OffsiteCourse(string courseName, string teacherName, string town, IList<string> students)
             : base(courseName, teacherName, students)
         {
             this.Town = town;
         }
+
+        /// <summary>
+        /// The town where the course is conducted.
+        /// </summary>
         public string Town
         {
             get

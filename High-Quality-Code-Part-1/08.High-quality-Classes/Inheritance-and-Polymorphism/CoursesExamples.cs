@@ -5,6 +5,9 @@ namespace InheritanceAndPolymorphism.Models
 {
     class CoursesExamples
     {
+        /// <summary>
+        /// Start the program.
+        /// </summary>
         static void Main()
         {
             LocalCourse localCourse = new LocalCourse("Databases", "Svetlin Nakov", "Enterprise");
