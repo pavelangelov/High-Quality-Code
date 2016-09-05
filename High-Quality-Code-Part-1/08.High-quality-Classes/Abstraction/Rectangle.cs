@@ -31,7 +31,7 @@ namespace Abstraction
 
             set
             {
-                Validator.ValidateRectangleSide(value, "width", "Width must be greater than 0!");
+                Validator.CheckNumberIsLessOrEqualToZero(value, "width", "Width must be greater than 0!");
 
                 this.width = value;
             }
@@ -49,7 +49,7 @@ namespace Abstraction
 
             set
             {
-                Validator.ValidateRectangleSide(value, "height", "Height must be greater than 0!");
+                Validator.CheckNumberIsLessOrEqualToZero(value, "height", "Height must be greater than 0!");
 
                 this.height = value;
             }

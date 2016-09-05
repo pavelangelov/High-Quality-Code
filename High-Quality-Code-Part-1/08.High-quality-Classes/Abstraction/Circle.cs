@@ -30,7 +30,7 @@ namespace Abstraction
 
             set
             {
-                Validator.ValidateCircleRadius(value, "Radius must be greater than 0!");
+                Validator.CheckNumberIsLessOrEqualToZero(value, "radius", "Radius must be greater than 0!");
 
                 this.radius = value;
             }
