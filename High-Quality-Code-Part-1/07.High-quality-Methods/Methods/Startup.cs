@@ -4,7 +4,7 @@ namespace Methods
 {
     public class Startup
     {
-        static void Main()
+        public static void Main()
         {
             MathCalculationTest();
 
@@ -25,9 +25,9 @@ namespace Methods
 
         private static void TransformingTest()
         {
-            TransformNumber.PrintFormatedNumber(1.3, "floating");
-            TransformNumber.PrintFormatedNumber(0.75, "percent");
-            TransformNumber.PrintFormatedNumber(2.30, "moveRight");
+            TransformNumber.PrintFormatedNumber(1.3, FormatType.Floating);
+            TransformNumber.PrintFormatedNumber(0.75, FormatType.Percent);
+            TransformNumber.PrintFormatedNumber(2.30, FormatType.PadLeft);
 
             Console.WriteLine(TransformNumber.NumberToDigit(5));
         }
@@ -54,8 +54,7 @@ namespace Methods
             Student stella = new Student("Stella", "Markova", 23);
             stella.OtherInfo = "From Vidin, gamer, high results, born at 03.11.1993";
 
-            Console.WriteLine("{0} older than {1} -> {2}",
-                peter.FirstName, stella.FirstName, peter.IsOlderThan(stella));
+            Console.WriteLine("{0} older than {1} -> {2}", peter.FirstName, stella.FirstName, peter.IsOlderThan(stella));
         }
     }
 }

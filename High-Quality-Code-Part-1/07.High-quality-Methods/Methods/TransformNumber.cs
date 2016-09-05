@@ -29,21 +29,24 @@ namespace Methods
         }
 
         /// <summary>
-        /// Format the number by passed formating parameter. "floating" -> floating format with 2 digits precision, 
-        /// "percent" -> format the number to percent, "moveRight" -> padding left with 8 possitions.
+        /// Format the number by passed format type. Floating - floating format with 2 digits precision, 
+        /// Percent - format the number to percent, PadLeft - padding left with 8 positions.
         /// </summary>
         /// <param name="number">The number to format.</param>
-        /// <param name="format">Formating type.(floating => float format, percent => format the number to percent, moveRight => padding format with space on the left.)</param>
-        public static void PrintFormatedNumber(double number, string format)
+        /// <param name="formatType">Format type.</param>
+        public static void PrintFormatedNumber(double number, FormatType formatType)
         {
-            switch (format)
+            switch (formatType)
             {
-                case "floating":
-                    Console.WriteLine(FloatingFormat(number)); break;
-                case "percent":
-                    Console.WriteLine(PercentFormating(number)); break;
-                case "moveRight":
-                    Console.WriteLine(PadRightFormat(number)); break;
+                case FormatType.Floating:
+                    Console.WriteLine(FloatingFormat(number));
+                    break;
+                case FormatType.Percent:
+                    Console.WriteLine(PercentFormating(number));
+                    break;
+                case FormatType.PadLeft:
+                    Console.WriteLine(PadRightFormat(number));
+                    break;
                 default:
                     throw new ArgumentException("Invalid formating parameter!");
             }
@@ -65,11 +68,9 @@ namespace Methods
 
         private static string PadRightFormat(double number)
         {
-
             string formatedNumber = string.Format("{0,8}", number);
 
             return formatedNumber;
         }
-
     }
 }

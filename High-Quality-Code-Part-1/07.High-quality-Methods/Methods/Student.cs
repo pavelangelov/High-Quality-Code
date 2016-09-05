@@ -45,6 +45,7 @@ namespace Methods
             {
                 return this.lastName;
             }
+
             set
             {
                 if (value == null || string.IsNullOrWhiteSpace(value))
@@ -74,7 +75,7 @@ namespace Methods
         /// <summary>
         /// Compare students by age. Returns true if current student is older than passed one, else return false.
         /// </summary>
-        /// <param name="otherStudent"></param>
+        /// <param name="otherStudent">Student to compare.</param>
         /// <returns>Return boolean.</returns>
         public bool IsOlderThan(Student otherStudent)
         {

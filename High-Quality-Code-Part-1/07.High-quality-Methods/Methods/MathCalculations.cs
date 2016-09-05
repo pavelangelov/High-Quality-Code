@@ -28,20 +28,6 @@ namespace Methods
             return area;
         }
 
-        private static bool AreValidSides(double firstSide, double secondSide, double thirdSide)
-        {
-            if (((firstSide + secondSide) > thirdSide) &&
-                ((firstSide + thirdSide) > secondSide) &&
-                ((secondSide + thirdSide) > firstSide))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
         /// <summary>
         /// Find maximum value in sequence of numbers. The numbers must be in array or listed one by one. 
         /// </summary>
@@ -62,11 +48,12 @@ namespace Methods
                     max = numbers[i];
                 }
             }
+
             return max;
         }
 
         /// <summary>
-        /// Calculate distance between two points.
+        /// Calculates distance between two points.
         /// </summary>
         /// <param name="x1">Frist Point x coordinate.</param>
         /// <param name="y1">Frist Point y coordinate.</param>
@@ -82,14 +69,40 @@ namespace Methods
             return distance;
         }
 
-        public static bool IsHorizontal(double y1, double y2)
+        /// <summary>
+        /// Checks if the line between two points is horizontal.
+        /// </summary>
+        /// <param name="firstPointY">First Point y-coordinate</param>
+        /// <param name="secondPointY">Second Point y-coordinate</param>
+        /// <returns></returns>
+        public static bool IsHorizontal(double firstPointY, double secondPointY)
         {
-            return y1 == y2;
+            return firstPointY == secondPointY;
         }
 
-        public static bool IsVertical(double x1, double x2)
+        /// <summary>
+        /// Checks if the line between two points is vertical.
+        /// </summary>
+        /// <param name="firstPointX">First Point x-coordinate<</param>
+        /// <param name="secondPointX">Second Point x-coordinate<</param>
+        /// <returns></returns>
+        public static bool IsVertical(double firstPointX, double secondPointX)
         {
-            return x1 == x2;
+            return firstPointX == secondPointX;
+        }
+
+        private static bool AreValidSides(double firstSide, double secondSide, double thirdSide)
+        {
+            if (((firstSide + secondSide) > thirdSide) &&
+                ((firstSide + thirdSide) > secondSide) &&
+                ((secondSide + thirdSide) > firstSide))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }
