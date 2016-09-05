@@ -4,22 +4,22 @@ using Validation;
 
 namespace Abstraction
 {
-    class Circle : Figure
+    public class Circle : Figure
     {
         private double radius;
 
         /// <summary>
-        /// Create new instance of Circle.
+        /// Initializes a new instance of the <see cref="Circle"/> class.
         /// </summary>
-        /// <param name="radius"></param>
+        /// <param name="radius">The radius of the circle.</param>
         public Circle(double radius)
-            :base()
+            : base()
         {
             this.Radius = radius;
         }
 
         /// <summary>
-        /// Circle`s radius.
+        /// Gets or sets Circle`s radius.
         /// </summary>
         public double Radius
         {

@@ -10,7 +10,7 @@ namespace InheritanceAndPolymorphism.Models
         private string town;
 
         /// <summary>
-        /// Create new instance of OffsiteCourse.
+        /// Initializes a new instance of the <see cref="OffsiteCourse"/> class.
         /// </summary>
         /// <param name="courseName">The name of the course.</param>
         /// <param name="teacherName">The name of the teacher of the course.</param>
@@ -22,7 +22,7 @@ namespace InheritanceAndPolymorphism.Models
         }
 
         /// <summary>
-        /// Create new instance of OffsiteCourse.
+        /// Initializes a new instance of the <see cref="OffsiteCourse"/> class.
         /// </summary>
         /// <param name="courseName">The name of the course.</param>
         /// <param name="teacherName">The name of the teacher of the course.</param>
@@ -35,7 +35,7 @@ namespace InheritanceAndPolymorphism.Models
         }
 
         /// <summary>
-        /// The town where the course is conducted.
+        /// Gets or sets the town where the course is conducted.
         /// </summary>
         public string Town
         {

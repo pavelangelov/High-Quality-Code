@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 namespace Abstraction
 {
-    class FiguresExample
+    public class FiguresExample
     {
         /// <summary>
         /// Start the program.
         /// </summary>
-        static void Main()
+        public static void Main()
         {
             var figures = new Figure[]
             {
@@ -53,7 +53,6 @@ namespace Abstraction
                 {
                     throwedExceptions.Add(ex.Message);
                 }
-                
             }
 
             foreach (var message in throwedExceptions)

@@ -28,7 +28,6 @@ namespace Cohesion_and_Coupling.Utils
         /// <returns>Returns double.</returns>
         public static double CalcDistance3D(Point3D first, Point3D second)
         {
-
             double distance = first.DistanceTo(second);
 
             return distance;

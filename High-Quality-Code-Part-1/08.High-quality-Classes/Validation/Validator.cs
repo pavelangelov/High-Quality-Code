@@ -19,7 +19,7 @@ namespace Validation
         }
 
         /// <summary>
-        /// If string doen`t contain file extension in the end, throws ArgumentException.
+        /// If string does not contain file extension in the end, throws ArgumentException.
         /// </summary>
         /// <param name="fileName">The name of the file.</param>
         /// <param name="message">Error message to throw.</param>

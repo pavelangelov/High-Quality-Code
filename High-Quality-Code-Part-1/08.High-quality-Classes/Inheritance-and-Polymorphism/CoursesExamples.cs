@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 namespace InheritanceAndPolymorphism.Models
 {
-    class CoursesExamples
+    public class CoursesExamples
     {
         /// <summary>
         /// Start the program.
         /// </summary>
-        static void Main()
+        public static void Main()
         {
             LocalCourse localCourse = new LocalCourse("Databases", "Svetlin Nakov", "Enterprise");
             Console.WriteLine(localCourse);
@@ -21,7 +21,9 @@ namespace InheritanceAndPolymorphism.Models
             Console.WriteLine(localCourse);
 
             OffsiteCourse offsiteCourse = new OffsiteCourse(
-                "PHP and WordPress Development", "Mario Peshev", "Sofia", 
+                "PHP and WordPress Development",
+                "Mario Peshev", 
+                "Sofia", 
                 new List<string>() { "Thomas", "Ani", "Steve" });
             Console.WriteLine(offsiteCourse);
         }

@@ -12,6 +12,5 @@
 
         internal const int TownMinLength = 5;
         internal const int TownMaxLength = 16;
-
     }
 }

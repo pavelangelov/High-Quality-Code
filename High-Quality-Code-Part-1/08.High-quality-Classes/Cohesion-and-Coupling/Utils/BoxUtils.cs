@@ -4,11 +4,10 @@ namespace Cohesion_and_Coupling.Utils
 {
     public class BoxUtils
     {
-
         /// <summary>
         /// Calculates the volume of the box.
         /// </summary>
-        /// <param name="box">Box.</param>
+        /// <param name="box">Box which volume to calculate.</param>
         /// <returns>Returns double.</returns>
         public static double CalcVolume(Box box)
         {
@@ -20,7 +19,7 @@ namespace Cohesion_and_Coupling.Utils
         /// <summary>
         /// Calculates the length of the box`s diagonal.
         /// </summary>
-        /// <param name="box">Box.</param>
+        /// <param name="box">Box which diagonal to calculate.</param>
         /// <returns>Returns double.</returns>
         public static double CalcDiagonalXYZ(Box box)
         {

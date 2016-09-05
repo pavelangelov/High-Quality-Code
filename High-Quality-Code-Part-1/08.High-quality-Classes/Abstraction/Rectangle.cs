@@ -2,13 +2,13 @@
 
 namespace Abstraction
 {
-    class Rectangle : Figure
+    public class Rectangle : Figure
     {
         private double width;
         private double height;
 
         /// <summary>
-        /// Create new instance of Rectangle.
+        /// Initializes a new instance of the <see cref="Rectangle"/> class.
         /// </summary>
         /// <param name="width">Rectangle`s width.</param>
         /// <param name="height">Rectangle`s height.</param>
@@ -20,7 +20,7 @@ namespace Abstraction
         }
 
         /// <summary>
-        /// Rectangle`s width.
+        /// Gets or sets Rectangle`s width.
         /// </summary>
         public double Width
         {
@@ -38,7 +38,7 @@ namespace Abstraction
         }
 
         /// <summary>
-        /// Rectangle`s height.
+        /// Gets or sets Rectangle`s height.
         /// </summary>
         public double Height
         {

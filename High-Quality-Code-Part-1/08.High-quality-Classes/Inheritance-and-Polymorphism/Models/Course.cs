@@ -25,7 +25,7 @@ namespace InheritanceAndPolymorphism.Models
         }
 
         /// <summary>
-        /// The name of the course.
+        /// Gets the name of the course.
         /// </summary>
         public string Name
         {
@@ -44,7 +44,7 @@ namespace InheritanceAndPolymorphism.Models
         }
 
         /// <summary>
-        /// Teacher`s name.
+        /// Gets teacher`s name.
         /// </summary>
         public string TeacherName
         {
@@ -63,7 +63,7 @@ namespace InheritanceAndPolymorphism.Models
         }
 
         /// <summary>
-        /// Enrolled student for this course.
+        /// Gets or sets enrolled student for this course.
         /// </summary>
         public IList<string> Students
         {
@@ -113,18 +113,6 @@ namespace InheritanceAndPolymorphism.Models
             }
         }
 
-        private string GetStudentsAsString()
-        {
-            if (this.Students == null || this.Students.Count == 0)
-            {
-                return "{ }";
-            }
-            else
-            {
-                return "{ " + string.Join(", ", this.Students) + " }";
-            }
-        }
-
         public override string ToString()
         {
             StringBuilder result = new StringBuilder();
@@ -138,6 +126,18 @@ namespace InheritanceAndPolymorphism.Models
             }
 
             return result.ToString();
+        }
+
+        private string GetStudentsAsString()
+        {
+            if (this.Students == null || this.Students.Count == 0)
+            {
+                return "{ }";
+            }
+            else
+            {
+                return "{ " + string.Join(", ", this.Students) + " }";
+            }
         }
     }
 }

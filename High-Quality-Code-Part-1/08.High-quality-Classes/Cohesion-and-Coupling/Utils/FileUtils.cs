@@ -9,7 +9,7 @@ namespace Cohesion_and_Coupling.Utils
         /// <summary>
         /// Get the file extension from passed file name.
         /// </summary>
-        /// <param name="fileName">File.</param>
+        /// <param name="fileName">File name where to check.</param>
         /// <returns>Returns string.</returns>
         public static string GetFileExtension(string fileName)
         {
@@ -25,7 +25,7 @@ namespace Cohesion_and_Coupling.Utils
         /// <summary>
         /// Returns new string, contains only the name of the file without file extension.
         /// </summary>
-        /// <param name="fileName">File.</param>
+        /// <param name="fileName">File name where to check.</param>
         /// <returns>Returns string.</returns>
         public static string GetFileNameWithoutExtension(string fileName)
         {
@@ -37,6 +37,5 @@ namespace Cohesion_and_Coupling.Utils
 
             return extension;
         }
-
     }
 }

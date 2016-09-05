@@ -11,7 +11,7 @@ namespace Cohesion_and_Coupling
         private double depth;
 
         /// <summary>
-        /// Create new instance of Box.
+        /// Initializes a new instance of the <see cref="Box"/> class.
         /// </summary>
         /// <param name="width">Width of the box.</param>
         /// <param name="height">Height of the box.</param>
@@ -24,7 +24,7 @@ namespace Cohesion_and_Coupling
         }
 
         /// <summary>
-        /// Width of the box.
+        /// Gets or sets Width of the box.
         /// </summary>
         public double Width
         {
@@ -43,7 +43,7 @@ namespace Cohesion_and_Coupling
         }
 
         /// <summary>
-        /// Height of the box.
+        /// Gets or sets Height of the box.
         /// </summary>
         public double Height
         {
@@ -62,7 +62,7 @@ namespace Cohesion_and_Coupling
         }
 
         /// <summary>
-        /// Depth of the box.
+        /// Gets or sets Depth of the box.
         /// </summary>
         public double Depth
         {

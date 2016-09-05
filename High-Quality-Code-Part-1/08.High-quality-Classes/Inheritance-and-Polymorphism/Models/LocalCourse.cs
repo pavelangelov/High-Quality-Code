@@ -10,7 +10,7 @@ namespace InheritanceAndPolymorphism.Models
         private string lab;
 
         /// <summary>
-        /// Create new instance of LocalCourse.
+        /// Initializes a new instance of the <see cref="LocalCourse"/> class.
         /// </summary>
         /// <param name="courseName">The name of the course.</param>
         /// <param name="teacherName">The name of the teacher of the course.</param>
@@ -22,20 +22,20 @@ namespace InheritanceAndPolymorphism.Models
         }
 
         /// <summary>
-        /// Create new instance of LocalCourse.
+        /// Initializes a new instance of the <see cref="LocalCourse"/> class.
         /// </summary>
         /// <param name="courseName">The name of the course.</param>
         /// <param name="teacherName">The name of the teacher of the course.</param>
         /// <param name="lab">The name of the course`s hall.</param>
         /// <param name="students">Enrolled student for this course.</param>
         public LocalCourse(string courseName, string teacherName, string lab, IList<string> students)
-            :base(courseName, teacherName, students)
+            : base(courseName, teacherName, students)
         {
             this.Lab = lab;
         }
 
         /// <summary>
-        /// The name of the course`s hall.
+        /// Gets or sets the name of the course`s hall.
         /// </summary>
         public string Lab
         {

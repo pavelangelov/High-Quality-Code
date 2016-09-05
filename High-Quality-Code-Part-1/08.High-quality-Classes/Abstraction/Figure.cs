@@ -2,7 +2,7 @@
 
 namespace Abstraction
 {
-    abstract class Figure
+    public abstract class Figure
     {
         protected Figure()
         {
