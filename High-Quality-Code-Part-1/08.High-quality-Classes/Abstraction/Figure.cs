@@ -4,23 +4,12 @@ namespace Abstraction
 {
     abstract class Figure
     {
-        public virtual double Width { get; set; }
-        public virtual double Height { get; set; }
-        public virtual double Radius { get; set; }
-
-        public Figure()
+        protected Figure()
         {
         }
+        
+        public abstract double CalcPerimeter();
 
-        public Figure(double radius)
-        {
-            this.Radius = radius;
-        }
-
-        public Figure(double width, double height)
-        {
-            this.Width = width;
-            this.Height = height;
-        }
+        public abstract double CalcSurface();
     }
 }
