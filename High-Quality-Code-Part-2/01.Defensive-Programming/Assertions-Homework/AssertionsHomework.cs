@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Diagnostics;
 
 class AssertionsHomework
@@ -16,6 +15,11 @@ class AssertionsHomework
     private static int FindMinElementIndex<T>(T[] arr, int startIndex, int endIndex) 
         where T : IComparable<T>
     {
+        Debug.Assert(arr != null, "Passed array parameter is null!");
+        Debug.Assert(0 <= startIndex && startIndex < arr.Length, "Start index is outside the bounds of the passed array.");
+        Debug.Assert(0 <= endIndex && endIndex < arr.Length, "End index is outside the bounds of the passed array.");
+        Debug.Assert(startIndex <= endIndex, "Start index is greater than end index!");
+
         int minElementIndex = startIndex;
         for (int i = startIndex + 1; i <= endIndex; i++)
         {
@@ -42,6 +46,10 @@ class AssertionsHomework
     private static int BinarySearch<T>(T[] arr, T value, int startIndex, int endIndex) 
         where T : IComparable<T>
     {
+        Debug.Assert(arr != null, "Passed array parameter is null!");
+        Debug.Assert(0 <= startIndex && startIndex < arr.Length, "Start index is outside the bounds of the passed array.");
+        Debug.Assert(0 <= endIndex && endIndex < arr.Length, "End index is outside the bounds of the passed array.");
+
         while (startIndex <= endIndex)
         {
             int midIndex = (startIndex + endIndex) / 2;
@@ -80,5 +88,6 @@ class AssertionsHomework
         Console.WriteLine(BinarySearch(arr, 17));
         Console.WriteLine(BinarySearch(arr, 10));
         Console.WriteLine(BinarySearch(arr, 1000));
+
     }
 }

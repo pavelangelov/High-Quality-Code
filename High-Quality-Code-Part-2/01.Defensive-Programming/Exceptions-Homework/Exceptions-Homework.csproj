@@ -50,6 +50,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SimpleMathExam.cs" />
     <Compile Include="Student.cs" />
+    <Compile Include="Utils\Constants.cs" />
+    <Compile Include="Utils\ErrorMessages.cs" />
+    <Compile Include="Utils\Validator.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

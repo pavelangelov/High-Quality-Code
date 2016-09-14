@@ -1,28 +1,49 @@
-﻿using System;
+﻿using Exceptions_Homework.Utils;
+
 
 public class CSharpExam : Exam
 {
-    public int Score { get; private set; }
+    private int score;
 
+    /// <summary>
+    /// Creates new instance of the class <see cref="CSharpExam"/>.
+    /// </summary>
+    /// <param name="score">The score from the exam.</param>
     public CSharpExam(int score)
     {
-        if (score < 0)
-        {
-            throw new NullReferenceException();
-        }
-
         this.Score = score;
     }
 
+    /// <summary>
+    /// Gets Score.
+    /// </summary>
+    public int Score
+    {
+        get
+        {
+            return this.score;
+        }
+
+        private set
+        {
+            string errorMsg = string.Format(ErrorMessages.NumberLessThanZeroErrorMessage, "score");
+            Validator.CheckIfNumberIsLessThanZero(value, errorMsg);
+
+            this.score = value;
+        }
+    }
+
+    /// <summary>
+    /// Creates and return new ExamResults.
+    /// </summary>
+    /// <returns>Returns new ExamResult.</returns>
     public override ExamResult Check()
     {
-        if (Score < 0 || Score > 100)
-        {
-            throw new InvalidOperationException();
-        }
-        else
-        {
-            return new ExamResult(this.Score, 0, 100, "Exam results calculated by score.");
-        }
+        string errorMsg = string.Format(ErrorMessages.ExamResultInvalidScoreMessage, Constants.ExamResultMinScore, Constants.ExamResultMaxScore);
+
+        Validator.CheckIfNumberIsInRange(this.Score, Constants.ExamResultMaxScore, Constants.ExamResultMinScore, errorMsg);
+
+        return new ExamResult(this.Score, Constants.ExamResultMinScore, Constants.ExamResultMaxScore, "Exam results calculated by score.");
+
     }
 }
