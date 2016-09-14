@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assertions-Homework", "Assertions-Homework\Assertions-Homework.csproj", "{088C16BD-0762-40ED-8F7E-615AE810D167}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Exceptions-Homework", "Exceptions-Homework\Exceptions-Homework.csproj", "{946DDC00-BFE3-4661-8C71-E27AF0BBA995}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E848524E-59DE-4228-9627-124A392B0B82}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{088C16BD-0762-40ED-8F7E-615AE810D167}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{088C16BD-0762-40ED-8F7E-615AE810D167}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{088C16BD-0762-40ED-8F7E-615AE810D167}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{088C16BD-0762-40ED-8F7E-615AE810D167}.Release|Any CPU.Build.0 = Release|Any CPU
+		{946DDC00-BFE3-4661-8C71-E27AF0BBA995}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{946DDC00-BFE3-4661-8C71-E27AF0BBA995}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{946DDC00-BFE3-4661-8C71-E27AF0BBA995}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{946DDC00-BFE3-4661-8C71-E27AF0BBA995}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
