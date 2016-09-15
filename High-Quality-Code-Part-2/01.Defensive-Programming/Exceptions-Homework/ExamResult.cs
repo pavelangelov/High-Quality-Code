@@ -7,6 +7,13 @@ public class ExamResult
     private int maxGrade;
     private string comments;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="ExamResult"/> class.
+    /// </summary>
+    /// <param name="grade"></param>
+    /// <param name="minGrade"></param>
+    /// <param name="maxGrade"></param>
+    /// <param name="comments"></param>
     public ExamResult(int grade, int minGrade, int maxGrade, string comments)
     {
         this.Grade = grade;
@@ -65,7 +72,7 @@ public class ExamResult
 
         private set
         {
-            Validator.CheckIfNumberIsGreaterThanOtherNumber(value, this.MinGrade, ErrorMessages.ExamResultMaxGradeErrorMessage);
+            Validator.CheckIfNumberIsEqualOrGreaterThanOtherNumber(value, this.MinGrade, ErrorMessages.ExamResultMaxGradeErrorMessage);
 
             this.maxGrade = value;
         }

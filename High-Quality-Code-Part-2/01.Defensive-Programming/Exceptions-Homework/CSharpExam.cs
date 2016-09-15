@@ -6,7 +6,7 @@ public class CSharpExam : Exam
     private int score;
 
     /// <summary>
-    /// Creates new instance of the class <see cref="CSharpExam"/>.
+    /// Initializes a new instance of the <see cref="CSharpExam"/> class.
     /// </summary>
     /// <param name="score">The score from the exam.</param>
     public CSharpExam(int score)
@@ -27,6 +27,7 @@ public class CSharpExam : Exam
         private set
         {
             string errorMsg = string.Format(ErrorMessages.NumberLessThanZeroErrorMessage, "score");
+
             Validator.CheckIfNumberIsLessThanZero(value, errorMsg);
 
             this.score = value;
@@ -39,11 +40,19 @@ public class CSharpExam : Exam
     /// <returns>Returns new ExamResult.</returns>
     public override ExamResult Check()
     {
-        string errorMsg = string.Format(ErrorMessages.ExamResultInvalidScoreMessage, Constants.ExamResultMinScore, Constants.ExamResultMaxScore);
+        string errorMsg = string.Format(ErrorMessages.ExamResultInvalidScoreMessage, 
+                                        Constants.ExamResultMinScore, 
+                                        Constants.ExamResultMaxScore);
 
-        Validator.CheckIfNumberIsInRange(this.Score, Constants.ExamResultMaxScore, Constants.ExamResultMinScore, errorMsg);
+        Validator.CheckIfNumberIsInRange(this.Score, 
+                                        Constants.ExamResultMaxScore, 
+                                        Constants.ExamResultMinScore, errorMsg);
 
-        return new ExamResult(this.Score, Constants.ExamResultMinScore, Constants.ExamResultMaxScore, "Exam results calculated by score.");
+        var result =  new ExamResult(this.Score, 
+                                     Constants.ExamResultMinScore, 
+                                     Constants.ExamResultMaxScore, 
+                                     "Exam results calculated by score.");
 
+        return result;
     }
 }

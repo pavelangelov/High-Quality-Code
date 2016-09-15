@@ -41,7 +41,7 @@ namespace Exceptions_Homework.Utils
         /// <param name="anotherNumber">A number to compare.</param>
         /// <param name="message">Message to show in trowed exception.</param>
         /// <exception cref="ArgumentException"/>
-        internal static void CheckIfNumberIsGreaterThanOtherNumber(int numberToCheck, int anotherNumber, string message = null)
+        internal static void CheckIfNumberIsEqualOrGreaterThanOtherNumber(int numberToCheck, int anotherNumber, string message = null)
         {
             if (numberToCheck <= anotherNumber)
             {
@@ -60,6 +60,20 @@ namespace Exceptions_Homework.Utils
             if (string.IsNullOrWhiteSpace(str))
             {
                 throw new ArgumentException(message);
+            }
+        }
+
+        /// <summary>
+        /// Checks if passed parameter is null.
+        /// </summary>
+        /// <param name="obj">Object to check.</param>
+        /// <param name="message">Message to show if throwed exception.</param>
+        /// <exception cref="NullReferenceException"/>
+        internal static void CheckForNull(object obj, string message = null)
+        {
+            if (obj == null)
+            {
+                throw new NullReferenceException(message)
             }
         }
     }

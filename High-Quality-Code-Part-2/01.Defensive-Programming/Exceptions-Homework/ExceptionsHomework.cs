@@ -1,43 +1,72 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 
-class ExceptionsHomework
+using Exceptions_Homework.Utils;
+
+public class ExceptionsHomework
 {
+    /// <summary>
+    /// Retrieves a array contained subsuquence of elements from original array.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="arr">Array of elements.</param>
+    /// <param name="startIndex">Start index of the subsequence.</param>
+    /// <param name="count">Number of elements to copy.</param>
+    /// <returns>Returns new T[].</returns>
+    /// <exception cref="ArgumentException"/>
+    /// <exception cref="ArgumentOutOfRangeException"/>
+    /// <exception cref="NullReferenceException"/>
     public static T[] Subsequence<T>(T[] arr, int startIndex, int count)
     {
+        Validator.CheckForNull(arr, "Array cannot be null!");
+        Validator.CheckIfNumberIsLessThanZero(startIndex, "startIndex cannot be less than 0!");
+        Validator.CheckIfNumberIsInRange(count, arr.Length - startIndex, 0, "count");
+
         List<T> result = new List<T>();
         for (int i = startIndex; i < startIndex + count; i++)
         {
             result.Add(arr[i]);
         }
+
         return result.ToArray();
     }
 
+    /// <summary>
+    /// Returns new string, contains last "count" characters from original string.
+    /// </summary>
+    /// <param name="str">String from where to extract.</param>
+    /// <param name="count">Number of characters.</param>
+    /// <returns>Returns string.</returns>
+    /// <exception cref="ArgumentException"/>
     public static string ExtractEnding(string str, int count)
     {
         if (count > str.Length)
         {
-            return "Invalid count!";
+            throw new ArgumentException("Count cannot be greater than string length!");
         }
 
-        StringBuilder result = new StringBuilder();
-        for (int i = str.Length - count; i < str.Length; i++)
-        {
-            result.Append(str[i]);
-        }
-        return result.ToString();
+        var startIndex = str.Length - count;
+        var result = str.Substring(startIndex);
+
+        return result;
     }
 
-    public static void CheckPrime(int number)
+    /// <summary>
+    /// Check if number is prime. Returns true or false.
+    /// </summary>
+    /// <param name="number">Number to check.</param>
+    /// <returns>Returns boolean.</returns>
+    public static bool CheckPrime(int number)
     {
         for (int divisor = 2; divisor <= Math.Sqrt(number); divisor++)
         {
             if (number % divisor == 0)
             {
-                throw new Exception("The number is not prime!");
+                return false;
             }
         }
+
+        return true;
     }
 
     static void Main()
@@ -57,28 +86,24 @@ class ExceptionsHomework
         Console.WriteLine(ExtractEnding("I love C#", 2));
         Console.WriteLine(ExtractEnding("Nakov", 4));
         Console.WriteLine(ExtractEnding("beer", 4));
-        Console.WriteLine(ExtractEnding("Hi", 100));
-
         try
         {
-            CheckPrime(23);
-            Console.WriteLine("23 is prime.");
+            Console.WriteLine(ExtractEnding("Hi", 100));
         }
-        catch (Exception ex)
+        catch (ArgumentException ex)
         {
-            Console.WriteLine("23 is not prime");
+            Console.WriteLine("\nExtractEnding from string \"Hi\", with count 100, throws error with message:");
+            Console.WriteLine(ex.Message);
+            Console.WriteLine();
         }
+        
 
-        try
-        {
-            CheckPrime(33);
-            Console.WriteLine("33 is prime.");
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine("33 is not prime");
-        }
+        int firstNumber = 23;
+        Console.WriteLine($"{firstNumber} is prime? -> {CheckPrime(firstNumber)}");
 
+        int secondNumber = 33;
+        Console.WriteLine($"{secondNumber} is prime? -> {CheckPrime(secondNumber)}");
+        
         List<Exam> peterExams = new List<Exam>()
         {
             new SimpleMathExam(2),
