@@ -73,7 +73,7 @@ namespace Exceptions_Homework.Utils
         {
             if (obj == null)
             {
-                throw new NullReferenceException(message)
+                throw new NullReferenceException(message);
             }
         }
     }
