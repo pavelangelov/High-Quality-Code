@@ -69,7 +69,21 @@ public class ExceptionsHomework
         return true;
     }
 
-    static void Main()
+    /// <summary>
+    /// Start the program.
+    /// </summary>
+    public static void Main()
+    {
+        SubsequenceTests();
+
+        StringTests();
+
+        PrimeNumberTests();
+
+        StudentTests();
+    }
+
+    private static void SubsequenceTests()
     {
         var substr = Subsequence("Hello!".ToCharArray(), 2, 3);
         Console.WriteLine(substr);
@@ -82,7 +96,10 @@ public class ExceptionsHomework
 
         var emptyarr = Subsequence(new int[] { -1, 3, 2, 1 }, 0, 0);
         Console.WriteLine(String.Join(" ", emptyarr));
+    }
 
+    private static void StringTests()
+    {
         Console.WriteLine(ExtractEnding("I love C#", 2));
         Console.WriteLine(ExtractEnding("Nakov", 4));
         Console.WriteLine(ExtractEnding("beer", 4));
@@ -96,14 +113,19 @@ public class ExceptionsHomework
             Console.WriteLine(ex.Message);
             Console.WriteLine();
         }
-        
+    }
 
+    private static void PrimeNumberTests()
+    {
         int firstNumber = 23;
         Console.WriteLine($"{firstNumber} is prime? -> {CheckPrime(firstNumber)}");
 
         int secondNumber = 33;
         Console.WriteLine($"{secondNumber} is prime? -> {CheckPrime(secondNumber)}");
-        
+    }
+
+    private static void StudentTests()
+    {
         List<Exam> peterExams = new List<Exam>()
         {
             new SimpleMathExam(2),
