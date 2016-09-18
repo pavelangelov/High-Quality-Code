@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Task_2.Compare_simple_Maths.SimpleMathsCompares
+namespace Common
 {
     public class Constants
     {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Task_2.Compare_simple_Maths
+namespace Common
 {
     public class Result
     {

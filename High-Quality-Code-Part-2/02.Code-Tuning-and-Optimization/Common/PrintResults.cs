@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Task_2.Compare_simple_Maths
+namespace Common
 {
     public static class PrintResults
     {

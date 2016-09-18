@@ -1,4 +1,5 @@
-﻿using Task_2.Compare_simple_Maths.SimpleMathsCompares;
+﻿using Common;
+using Task_2.Compare_simple_Maths.SimpleMathsCompares;
 
 namespace Task_2.Compare_simple_Maths
 {
@@ -11,15 +12,18 @@ namespace Task_2.Compare_simple_Maths
              * for executing the operation.
              */
             var addResults = Add.Run();
-            var substractResults = Subtract.GetAverageResults();
-            var incrementResults = Increment.Run();
-            var multiplyResults = Multiply.Run();
-            var dividedResults = Divide.Run();
-
             PrintResults.PrintToConsole(addResults, "add");
+
+            var substractResults = Subtract.GetAverageResults();
             PrintResults.PrintToConsole(substractResults, "substract");
+
+            var incrementResults = Increment.Run();
             PrintResults.PrintToConsole(incrementResults, "increment");
+
+            var multiplyResults = Multiply.Run();
             PrintResults.PrintToConsole(multiplyResults, "multiply");
+
+            var dividedResults = Divide.Run();
             PrintResults.PrintToConsole(dividedResults, "divide");
         }
     }

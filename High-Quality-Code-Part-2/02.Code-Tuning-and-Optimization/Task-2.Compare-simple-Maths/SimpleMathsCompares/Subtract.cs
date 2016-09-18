@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
+using Common;
+
 namespace Task_2.Compare_simple_Maths.SimpleMathsCompares
 {
     /// <summary>
