@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task-3.Compare-advanced-Mat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{6A937770-8BA4-462D-89C2-2378D5C6B178}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task-4.Compare-sort-algorithms", "Task-4.Compare-sort-algorithms\Task-4.Compare-sort-algorithms.csproj", "{C73BAEC7-1D15-45CB-B304-B3D108AC03D6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{6A937770-8BA4-462D-89C2-2378D5C6B178}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A937770-8BA4-462D-89C2-2378D5C6B178}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A937770-8BA4-462D-89C2-2378D5C6B178}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C73BAEC7-1D15-45CB-B304-B3D108AC03D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C73BAEC7-1D15-45CB-B304-B3D108AC03D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C73BAEC7-1D15-45CB-B304-B3D108AC03D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C73BAEC7-1D15-45CB-B304-B3D108AC03D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

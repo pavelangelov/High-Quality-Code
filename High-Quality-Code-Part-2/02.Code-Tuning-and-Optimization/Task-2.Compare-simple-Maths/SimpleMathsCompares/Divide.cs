@@ -31,12 +31,12 @@ namespace Task_2.Compare_simple_Maths.SimpleMathsCompares
             int result;
             Stopwatch st = new Stopwatch();
 
-            for (int i = 0; i < Constants.numberOfCompares; i++)
+            for (int i = 0; i < Constants.NumberOfCompares; i++)
             {
                 st.Reset();
                 st.Start();
                 result = int.MaxValue;
-                for (int j = 0; j < Constants.numberOfOperations; j++)
+                for (int j = 0; j < Constants.NumberOfOperations; j++)
                 {
                     result /= divider;
                 }
@@ -59,12 +59,12 @@ namespace Task_2.Compare_simple_Maths.SimpleMathsCompares
             long result;
             Stopwatch st = new Stopwatch();
 
-            for (int i = 0; i < Constants.numberOfCompares; i++)
+            for (int i = 0; i < Constants.NumberOfCompares; i++)
             {
                 st.Reset();
                 st.Start();
                 result = long.MaxValue;
-                for (int j = 0; j < Constants.numberOfOperations; j++)
+                for (int j = 0; j < Constants.NumberOfOperations; j++)
                 {
                     result /= divider;
                 }
@@ -87,12 +87,12 @@ namespace Task_2.Compare_simple_Maths.SimpleMathsCompares
             float result;
             Stopwatch st = new Stopwatch();
 
-            for (int i = 0; i < Constants.numberOfCompares; i++)
+            for (int i = 0; i < Constants.NumberOfCompares; i++)
             {
                 st.Reset();
                 st.Start();
                 result = float.MaxValue;
-                for (int j = 0; j < Constants.numberOfOperations; j++)
+                for (int j = 0; j < Constants.NumberOfOperations; j++)
                 {
                     result /= divider;
                 }
@@ -115,12 +115,12 @@ namespace Task_2.Compare_simple_Maths.SimpleMathsCompares
             double result;
             Stopwatch st = new Stopwatch();
 
-            for (int i = 0; i < Constants.numberOfCompares; i++)
+            for (int i = 0; i < Constants.NumberOfCompares; i++)
             {
                 st.Reset();
                 st.Start();
                 result = double.MaxValue;
-                for (int j = 0; j < Constants.numberOfOperations; j++)
+                for (int j = 0; j < Constants.NumberOfOperations; j++)
                 {
                     result /= divider;
                 }
@@ -143,12 +143,12 @@ namespace Task_2.Compare_simple_Maths.SimpleMathsCompares
             decimal result;
             Stopwatch st = new Stopwatch();
 
-            for (int i = 0; i < Constants.numberOfCompares; i++)
+            for (int i = 0; i < Constants.NumberOfCompares; i++)
             {
                 st.Reset();
                 st.Start();
                 result = decimal.MaxValue;
-                for (int j = 0; j < Constants.numberOfOperations; j++)
+                for (int j = 0; j < Constants.NumberOfOperations; j++)
                 {
                     result /= numberToMultiply;
                 }
