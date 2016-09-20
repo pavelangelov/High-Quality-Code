@@ -1,0 +1,1 @@
+﻿Founded bug in class OrbitsCalculator, line 97. There is a unnecessary loop for calculating EarthRotationAngle. Before removing the loop, the program works very slow, but JustTrace creates the same result after removing the loop. Maybe it use Release state, not the Debug state and there is optimizations that ignore this loop.

@@ -1,4 +1,6 @@
-﻿using Common;
+﻿using System.Text;
+
+using Common;
 using Task_2.Compare_simple_Maths.SimpleMathsCompares;
 
 namespace Task_2.Compare_simple_Maths
@@ -7,10 +9,13 @@ namespace Task_2.Compare_simple_Maths
     {
         public static void Main()
         {
-            /*
-             * All results are calculated with 1 000 000 operations, repeated 10 times to get the average needed time 
-             * for executing the operation.
-             */
+
+            StringBuilder startMessage = new StringBuilder();
+            startMessage.AppendLine("This program calculates average time for calculating Add, Subtract, Increment, Multiply and Divide with different data types.");
+            startMessage.AppendLine($"For every data type is calculated average time for {Constants.NumberOfOperations} calculatons.");
+
+            System.Console.WriteLine(startMessage);
+
             var addResults = Add.Run();
             PrintResults.PrintToConsole(addResults, "add");
 

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Common
+﻿namespace Common
 {
     public class Constants
     {
@@ -17,5 +11,6 @@ namespace Common
         public const int MinStringLength = 1;
         public const int MaxStringLength = 12;
 
+        public const int ArrayLength = 5000;
     }
 }

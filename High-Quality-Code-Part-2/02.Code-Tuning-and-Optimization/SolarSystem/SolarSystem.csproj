@@ -137,6 +137,15 @@
   <ItemGroup>
     <Folder Include="Properties\" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="SolarSystem-JustTrace-Before.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="SolarSystem-JustTrace-After.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Fixes.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
