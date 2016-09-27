@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 
 using MatrixHomework.Contracts;
 using MatrixHomework.Models;
 
+[assembly:InternalsVisibleTo("Matrix.Tests")]
 namespace MatrixHomework.Utils
 {
     /// <summary>

@@ -35,7 +35,7 @@ namespace MatrixHomework
         /// <param name="logger">Use it to send message to user if input is invalid.</param>
         /// <param name="reader">Use it to read user`s input.</param>
         /// <returns>Returns Int32.</returns>
-        internal static int GetMatrixSizeFromUser(ILogger logger, IReader reader)
+        public static int GetMatrixSizeFromUser(ILogger logger, IReader reader)
         {
             logger.Write(Constants.StartupMessage);
             string input = reader.ReadLine();
