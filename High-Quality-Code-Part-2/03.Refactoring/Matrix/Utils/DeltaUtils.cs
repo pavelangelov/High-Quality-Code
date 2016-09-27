@@ -5,8 +5,17 @@ using MatrixHomework.Models;
 
 namespace MatrixHomework.Utils
 {
+    /// <summary>
+    /// Helpers for the class <see cref="Delta"/>.
+    /// </summary>
     public class DeltaUtils
     {
+        /// <summary>
+        /// Returns <see cref="IDelta"/> with specific X and Y values for the current direction.
+        /// </summary>
+        /// <param name="direction">Current direction.</param>
+        /// <returns>Returns <see cref="IDelta"/></returns>
+        /// <exception cref="ArgumentException"/>
         internal static IDelta GetDeltasByDirection(string direction)
         {
             switch (direction)

@@ -6,7 +6,10 @@ namespace MatrixHomework
 {
     public class Startup
     {
-        public static void Main(string[] args)
+        /// <summary>
+        /// Start the program.
+        /// </summary>
+        public static void Main()
         {
             ILogger logger = new ConsoleLogger();
             IReader reader = new ConsoleReader();

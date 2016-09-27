@@ -44,11 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constants.cs" />
-    <Compile Include="Contracts\ICell.cs" />
     <Compile Include="Contracts\IDelta.cs" />
     <Compile Include="Contracts\ILogger.cs" />
     <Compile Include="Contracts\IReader.cs" />
-    <Compile Include="Models\Cell.cs" />
     <Compile Include="Models\ConsoleReader.cs" />
     <Compile Include="Models\Delta.cs" />
     <Compile Include="Startup.cs" />

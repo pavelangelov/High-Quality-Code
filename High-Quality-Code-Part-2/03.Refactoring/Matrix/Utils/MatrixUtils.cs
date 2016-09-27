@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Text;
 
-using MatrixHomework.Contracts;
-using MatrixHomework.Models;
-
 namespace MatrixHomework.Utils
 {
     public class MatrixUtils
@@ -31,11 +28,11 @@ namespace MatrixHomework.Utils
 
                 if (!CheckForNextMove(matrix, row, col))
                 {
-                    ICell nextFreeCell = FindUnvisitedCell(matrix);
-                    if (nextFreeCell.Row > -1 && nextFreeCell.Col > -1)
+                    int[] nextFreeCell = FindUnvisitedCell(matrix);
+                    if ((nextFreeCell[0] > -1) && (nextFreeCell[1] > -1))
                     {
-                        row = nextFreeCell.Row;
-                        col = nextFreeCell.Col;
+                        row = nextFreeCell[0];
+                        col = nextFreeCell[1];
                         cellValue++;
                         direction = Constants.directions[0];
                         deltas = DeltaUtils.GetDeltasByDirection(direction);
@@ -175,20 +172,25 @@ namespace MatrixHomework.Utils
             }
         }
 
-        private static ICell FindUnvisitedCell(int[,] arr)
+        private static int[] FindUnvisitedCell(int[,] arr)
         {
+            int[] nextFreeCell = new int[] { -1, -1 };
+
             for (int row = 0; row < arr.GetLength(0); row++)
             {
                 for (int col = 0; col < arr.GetLength(0); col++)
                 {
                     if (arr[row, col] == 0)
                     {
-                        return new Cell(row, col);
+                        nextFreeCell[0] = row;
+                        nextFreeCell[1] = col;
+
+                        return nextFreeCell;
                     }
                 }
             }
 
-            return new Cell(-1, -1);
+            return nextFreeCell;
         }
 
     }
