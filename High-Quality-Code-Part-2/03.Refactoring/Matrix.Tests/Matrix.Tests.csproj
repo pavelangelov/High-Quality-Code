@@ -92,6 +92,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="StartupTests\GetMatrixSizeFromUserShould_.cs" />
     <Compile Include="UtilsTests\DeltaUtils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
