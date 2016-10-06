@@ -16,7 +16,7 @@ namespace Matrix.Tests.StartupTests
         [TestCase("3", 3)]
         [TestCase("4", 4)]
         [TestCase("20", 20)]
-        public void GetMatrixSizeFromUserShould_ReturnCorrectNumber_IfInputIsValid(string input, int expectedResult)
+        public void ReturnCorrectNumber_IfInputIsValid(string input, int expectedResult)
         {
             var mockedLogger = new Mock<ILogger>();
             var mockedReader = new Mock<IReader>();
@@ -35,7 +35,7 @@ namespace Matrix.Tests.StartupTests
         [TestCase("number", "3", 3)]
         [TestCase("aaa", "4", 4)]
         [TestCase("word", "2", 2)]
-        public void GetMatrixSizeFromUserShould_NotToThrow_IfInputIsInvalid(string invalidInput, string validInput, int expectedResult)
+        public void NotToThrow_IfInputIsInvalid(string invalidInput, string validInput, int expectedResult)
         {
             var mockedLogger = new Mock<ILogger>();
             var mockedReader = new Mock<IReader>();
