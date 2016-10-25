@@ -30,7 +30,7 @@ namespace Abstract_Factory.Models
             var extrasStr = string.Join(", ", this.Extras);
 
             result.AppendLine($"{this.Brand}  {this.Model}");
-            result.AppendLine($"Year of manufacturer: {this.Year}");
+            result.AppendLine($"Year of manufacture: {this.Year}");
             result.AppendLine($"Extras: \r\n{extrasStr}");
 
             return result.ToString();
