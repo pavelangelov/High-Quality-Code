@@ -43,6 +43,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\ILogger.cs" />
+    <Compile Include="Contracts\INetClient.cs" />
+    <Compile Include="Contracts\INetConnector.cs" />
+    <Compile Include="Models\ConsoleLogger.cs" />
+    <Compile Include="Models\InternetConnectors\Decorator.cs" />
+    <Compile Include="Models\InternetConnectors\InternetProvider.cs" />
+    <Compile Include="Models\InternetConnectors\MobileBroadband.cs" />
+    <Compile Include="Models\Laptop.cs" />
+    <Compile Include="Models\InternetConnectors\WiFiRouter.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
