@@ -12,6 +12,11 @@ namespace Composite_Pattern.Models
         {
             this.cleaners = new List<ICleaner>();
         }
+        public CleaningCompany(ICollection<ICleaner> cleaners)
+            : this()
+        {
+            this.AddRange(cleaners);
+        }
 
         public void AddWasher(ICleaner cleaner)
         {

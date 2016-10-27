@@ -7,20 +7,21 @@ namespace Composite_Pattern
     {
         public static void Main()
         {
-            // Single ICleaner instance
-            var person = new Person();
-
-            // Composite ICleaner instance. Can contain many single ICleaner instances.
-            var cleanerCompany = new CleaningCompany();
-
-            person.Clean();
-
-            cleanerCompany.AddRange(new ICleaner[]
+            var cleaners = new ICleaner[]
             {
                 new Person(),
                 new Person(),
                 new Person()
-            });
+            };
+
+            // Single ICleaner instance
+            ICleaner person = new Person();
+
+            // Composite ICleaner instance. Can contain many single ICleaner instances.
+            ICleaner cleanerCompany = new CleaningCompany(cleaners);
+
+            person.Clean();
+
 
             cleanerCompany.Clean();
         }
