@@ -18,7 +18,7 @@ namespace Decorator_Pattern.Models.InternetConnectors
 
         public virtual string DisconnectDevice(INetClient device)
         {
-            var connectionMsg = internetConnector.ConnectDevice(device);
+            var connectionMsg = internetConnector.DisconnectDevice(device);
 
             return connectionMsg;
         }
