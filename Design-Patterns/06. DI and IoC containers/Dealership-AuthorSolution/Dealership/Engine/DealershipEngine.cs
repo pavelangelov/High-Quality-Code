@@ -35,26 +35,22 @@ namespace Dealership.Engine
 
         private const string CommentDoesNotExist = "The comment does not exist!";
         private const string VehicleDoesNotExist = "The vehicle does not exist!";
-
-        private static readonly IEngine SingleInstance = new DealershipEngine();
+        
 
         private IDealershipFactory factory;
+        private IReader reader;
+        private ILogger logger;
         private ICollection<IUser> users;
         private IUser loggedUser;
 
-        private DealershipEngine()
+        public DealershipEngine(IDealershipFactory factory, IReader reader, ILogger logger)
         {
-            this.factory = new DealershipFactory();
+            this.factory = factory;
+            this.reader = reader;
+            this.logger = logger;
+
             this.users = new List<IUser>();
             this.loggedUser = null;
-        }
-
-        public static IEngine Instance
-        {
-            get
-            {
-                return SingleInstance;
-            }
         }
 
         public void Start()
@@ -66,7 +62,7 @@ namespace Dealership.Engine
 
         public void Reset()
         {
-            this.factory = new DealershipFactory();
+            //this.factory = new DealershipFactory();
             this.users = new List<IUser>();
             this.loggedUser = null;
             var commands = new List<ICommand>();
@@ -79,14 +75,14 @@ namespace Dealership.Engine
         {
             var commands = new List<ICommand>();
 
-            var currentLine = Console.ReadLine();
+            var currentLine = this.reader.ReadLine();
 
             while (!string.IsNullOrEmpty(currentLine))
             {
                 var currentCommand = new Command(currentLine);
                 commands.Add(currentCommand);
 
-                currentLine = Console.ReadLine();
+                currentLine = this.reader.ReadLine();
             }
 
             return commands;
@@ -122,7 +118,7 @@ namespace Dealership.Engine
                 output.AppendLine(new string('#', 20));
             }
 
-            Console.Write(output.ToString());
+            this.logger.Write(output.ToString());
         }
 
         private string ProcessSingleCommand(ICommand command)
@@ -217,7 +213,7 @@ namespace Dealership.Engine
                 return string.Format(UserAlreadyExist, username);
             }
 
-            var user = this.factory.CreateUser(username, firstName, lastName, password, role.ToString());
+            var user = this.factory.CreateUser(username, firstName, lastName, password, role);
             this.loggedUser = user;
             this.users.Add(user);
 

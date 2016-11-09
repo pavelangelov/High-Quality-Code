@@ -1,35 +1,54 @@
 ﻿using Dealership.Contracts;
-using System;
-using Dealership.Models;
 using Dealership.Common.Enums;
 
 namespace Dealership.Factories
 {
     public class DealershipFactory : IDealershipFactory
     {
+        private IVehicleFactory vehicleFactory;
+        private IUserFactory userFactory;
+        private ICommentFactory commentFactory;
+
+        public DealershipFactory(IVehicleFactory vehicleFactory, IUserFactory userFactory, ICommentFactory commentFactory)
+        {
+            this.vehicleFactory = vehicleFactory;
+            this.userFactory = userFactory;
+            this.commentFactory = commentFactory;
+        }
+
         public IVehicle CreateCar(string make, string model, decimal price, int seats)
         {
-            return new Car(make, model, price, seats);
+            var car = this.vehicleFactory.CreateCar(make, model,  price, seats);
+
+            return car;
         }
 
         public IVehicle CreateMotorcycle(string make, string model, decimal price, string category)
         {
-            return new Motorcycle(make, model, price, category);
+            var motorcycle = this.vehicleFactory.CreateMotorcycle(make, model, price, category);
+
+            return motorcycle;
         }
 
         public IVehicle CreateTruck(string make, string model, decimal price, int weightCapacity)
         {
-            return new Truck(make, model, price, weightCapacity);
+            var truck = this.vehicleFactory.CreateTruck(make, model, price, weightCapacity);
+
+            return truck;
         }
 
-        public IUser CreateUser(string username, string firstName, string lastName, string password, string role)
+        public IUser CreateUser(string username, string firstName, string lastName, string password, Role role)
         {
-            return new User(username, firstName, lastName, password, (Role)Enum.Parse(typeof(Role), role));
+            var user = this.userFactory.CreateUser(username, firstName, lastName, password, role);
+
+            return user;
         }
 
         public IComment CreateComment(string content)
         {
-            return new Comment(content);
+            var comment = this.commentFactory.CreateComment(content);
+
+            return comment;
         }
     }
 }
