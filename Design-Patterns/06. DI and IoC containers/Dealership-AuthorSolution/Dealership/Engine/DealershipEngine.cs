@@ -35,17 +35,22 @@ namespace Dealership.Engine
 
         private const string CommentDoesNotExist = "The comment does not exist!";
         private const string VehicleDoesNotExist = "The vehicle does not exist!";
-        
 
-        private IDealershipFactory factory;
+        private readonly string LineSeparator = new string('#', 20);
+
+
+
+        private IDealershipFactory dealershipFactory;
+        private ICommandFactory commandFactory;
         private IReader reader;
         private ILogger logger;
         private ICollection<IUser> users;
         private IUser loggedUser;
 
-        public DealershipEngine(IDealershipFactory factory, IReader reader, ILogger logger)
+        public DealershipEngine(IDealershipFactory factory, ICommandFactory commandFactory, IReader reader, ILogger logger)
         {
-            this.factory = factory;
+            this.dealershipFactory = factory;
+            this.commandFactory = commandFactory;
             this.reader = reader;
             this.logger = logger;
 
@@ -62,7 +67,6 @@ namespace Dealership.Engine
 
         public void Reset()
         {
-            //this.factory = new DealershipFactory();
             this.users = new List<IUser>();
             this.loggedUser = null;
             var commands = new List<ICommand>();
@@ -75,14 +79,14 @@ namespace Dealership.Engine
         {
             var commands = new List<ICommand>();
 
-            var currentLine = this.reader.ReadLine();
+            var parameters = this.reader.ReadLine();
 
-            while (!string.IsNullOrEmpty(currentLine))
+            while (!string.IsNullOrEmpty(parameters))
             {
-                var currentCommand = new Command(currentLine);
+                var currentCommand = this.commandFactory.CreateCommand(parameters);
                 commands.Add(currentCommand);
 
-                currentLine = this.reader.ReadLine();
+                parameters = this.reader.ReadLine();
             }
 
             return commands;
@@ -115,7 +119,7 @@ namespace Dealership.Engine
             foreach (var report in reports)
             {
                 output.AppendLine(report);
-                output.AppendLine(new string('#', 20));
+                output.AppendLine(this.LineSeparator);
             }
 
             this.logger.Write(output.ToString());
@@ -213,7 +217,7 @@ namespace Dealership.Engine
                 return string.Format(UserAlreadyExist, username);
             }
 
-            var user = this.factory.CreateUser(username, firstName, lastName, password, role);
+            var user = this.dealershipFactory.CreateUser(username, firstName, lastName, password, role);
             this.loggedUser = user;
             this.users.Add(user);
 
@@ -250,15 +254,15 @@ namespace Dealership.Engine
 
             if (type == VehicleType.Car)
             {
-                vehicle = this.factory.CreateCar(make, model, price, int.Parse(additionalParam));
+                vehicle = this.dealershipFactory.CreateCar(make, model, price, int.Parse(additionalParam));
             }
             else if (type == VehicleType.Motorcycle)
             {
-                vehicle = this.factory.CreateMotorcycle(make, model, price, additionalParam);
+                vehicle = this.dealershipFactory.CreateMotorcycle(make, model, price, additionalParam);
             }
             else if (type == VehicleType.Truck)
             {
-                vehicle = this.factory.CreateTruck(make, model, price, int.Parse(additionalParam));
+                vehicle = this.dealershipFactory.CreateTruck(make, model, price, int.Parse(additionalParam));
             }
 
             this.loggedUser.AddVehicle(vehicle);
@@ -279,7 +283,7 @@ namespace Dealership.Engine
 
         private string AddComment(string content, int vehicleIndex, string author)
         {
-            var comment = this.factory.CreateComment(content);
+            var comment = this.dealershipFactory.CreateComment(content);
             comment.Author = this.loggedUser.Username;
             var user = this.users.FirstOrDefault(u => u.Username == author);
 

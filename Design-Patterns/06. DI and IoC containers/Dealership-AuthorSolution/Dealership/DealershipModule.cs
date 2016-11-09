@@ -24,6 +24,7 @@ namespace Dealership
             Bind<IVehicleFactory>().ToFactory().InSingletonScope();
             Bind<IUserFactory>().ToFactory().InSingletonScope();
             Bind<ICommentFactory>().ToFactory().InSingletonScope();
+            Bind<ICommandFactory>().ToFactory().InSingletonScope();
 
             Bind<IDealershipFactory>().To<DealershipFactory>().InSingletonScope();
 
@@ -35,6 +36,7 @@ namespace Dealership
             Bind<Car>().ToSelf();
             Bind<Motorcycle>().ToSelf();
             Bind<Truck>().ToSelf();
+            Bind<Command>().ToSelf();
         }
     }
 }

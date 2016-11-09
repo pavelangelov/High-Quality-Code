@@ -13,10 +13,10 @@ namespace Dealership.Engine
         private string name;
         private List<string> parameters;
 
-        public Command(string input)
+        public Command(string parameters)
         {
             this.Parameters = new List<string>();
-            this.TranslateInput(input);
+            this.TranslateInput(parameters);
         }
 
         public string Name
