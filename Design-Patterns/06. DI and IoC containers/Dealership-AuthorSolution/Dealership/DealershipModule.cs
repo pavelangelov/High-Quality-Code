@@ -22,7 +22,7 @@ namespace Dealership
             Bind<ICommentFactory>().ToFactory().InSingletonScope();
             Bind<ICommandFactory>().ToFactory().InSingletonScope();
 
-            Bind<IDealershipFactory>().To<DealershipFactory>().InSingletonScope();
+            Bind<IDealershipFactory>().ToFactory().InSingletonScope();
 
             Bind<IReader>().To<ConsoleReader>();
             Bind<ILogger>().To<ConsoleLogger>();
