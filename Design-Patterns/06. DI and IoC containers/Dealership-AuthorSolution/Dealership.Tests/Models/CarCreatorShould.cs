@@ -15,12 +15,12 @@ namespace Dealership.Tests.Models
         public void _CallVehicleFactory_CreateCarMethod_IfPassedParametersAreCorrect()
         {
             // Arange
-            var make = "make";
-            var model = "model";
-            var price = 12;
+            var make = "Seat";
+            var model = "Cordoba";
+            var price = 1200m;
             var seats = "4";
+
             var mockedVehicleFactory = new Mock<IVehicleFactory>();
-            var mockedCar = new Mock<IVehicle>();
             var carCreator = new CarCreator(mockedVehicleFactory.Object);
 
             mockedVehicleFactory.Setup(x => x.CreateCar(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<decimal>(), It.IsAny<int>())).Verifiable();
@@ -36,12 +36,12 @@ namespace Dealership.Tests.Models
         public void _ReturnNull_IfVehicleTypeIsIncorect_AndDoesNotHaveSuccessor()
         {
             // Arange
-            var make = "make";
-            var model = "model";
-            var price = 12;
+            var make = "Seat";
+            var model = "Cordoba";
+            var price = 1200m;
             var seats = "4";
+
             var mockedVehicleFactory = new Mock<IVehicleFactory>();
-            var mockedCar = new Mock<IVehicle>();
             var carCreator = new CarCreator(mockedVehicleFactory.Object);
 
             mockedVehicleFactory.Setup(x => x.CreateCar(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<decimal>(), It.IsAny<int>())).Verifiable();
@@ -63,8 +63,8 @@ namespace Dealership.Tests.Models
             var model = "Cordoba";
             var price = 1200m;
             var seats = 4;
+
             var mockedVehicleFactory = new Mock<IVehicleFactory>();
-            var mockedCar = new Mock<IVehicle>();
             var carCreator = new CarCreator(mockedVehicleFactory.Object);
 
             mockedVehicleFactory.Setup(x => x.CreateCar(make, model, price, seats)).Returns(new Car(make, model, price, seats));
@@ -73,10 +73,11 @@ namespace Dealership.Tests.Models
             var car = carCreator.Create(VehicleType.Car, make, model, price, seats.ToString());
 
             // Assert
+            Assert.AreEqual(typeof(Car), car.GetType());
             Assert.AreEqual(car.Make, make);
             Assert.AreEqual(car.Model, model);
             Assert.AreEqual(car.Price, price);
-            Assert.AreEqual(car.Wheels, seats);
+            Assert.AreEqual(car.Wheels, 4);
         }
     }
 }

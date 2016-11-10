@@ -66,6 +66,9 @@
   <ItemGroup>
     <Compile Include="Models\CarCreatorShould.cs" />
     <Compile Include="Models\CarShould.cs" />
+    <Compile Include="Models\CommentShould.cs" />
+    <Compile Include="Models\MotorcycleCreatorShould.cs" />
+    <Compile Include="Models\TruckCreatorShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
