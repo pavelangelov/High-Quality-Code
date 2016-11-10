@@ -1,12 +1,12 @@
 ﻿using NUnit.Framework;
 using Moq;
 
-using Dealership.Models;
 using Dealership.Contracts;
-using Dealership.Factories;
 using Dealership.Common.Enums;
+using Dealership.Factories;
+using Dealership.Models;
 
-namespace Dealership.Tests
+namespace Dealership.Tests.Models
 {
     [TestFixture]
     public class CarCreatorShould
@@ -33,7 +33,7 @@ namespace Dealership.Tests
         }
 
         [Test]
-        public void _ReturnNull_IfVehicleTypeIsIncorect()
+        public void _ReturnNull_IfVehicleTypeIsIncorect_AndDoesNotHaveSuccessor()
         {
             // Arange
             var make = "make";
@@ -52,6 +52,31 @@ namespace Dealership.Tests
             // Assert
             Assert.IsNull(car);
             mockedVehicleFactory.Verify(x => x.CreateCar(It.IsAny<string>(), It.IsAny<string>(), It.IsAny<decimal>(), It.IsAny<int>()), Times.Exactly(0));
+        }
+
+
+        [Test]
+        public void _CallVehicleFactory_CreateCarMethod_AndReturnCarWithCorrectParameters()
+        {
+            // Arange
+            var make = "Seat";
+            var model = "Cordoba";
+            var price = 1200m;
+            var seats = 4;
+            var mockedVehicleFactory = new Mock<IVehicleFactory>();
+            var mockedCar = new Mock<IVehicle>();
+            var carCreator = new CarCreator(mockedVehicleFactory.Object);
+
+            mockedVehicleFactory.Setup(x => x.CreateCar(make, model, price, seats)).Returns(new Car(make, model, price, seats));
+
+            // Act
+            var car = carCreator.Create(VehicleType.Car, make, model, price, seats.ToString());
+
+            // Assert
+            Assert.AreEqual(car.Make, make);
+            Assert.AreEqual(car.Model, model);
+            Assert.AreEqual(car.Price, price);
+            Assert.AreEqual(car.Wheels, seats);
         }
     }
 }
