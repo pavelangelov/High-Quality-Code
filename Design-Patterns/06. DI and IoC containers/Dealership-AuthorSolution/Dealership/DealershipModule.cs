@@ -13,6 +13,11 @@ namespace Dealership
         private const string CarCreatorName = "CarCreator";
         private const string TruckCreatorName = "TruckCreator";
         private const string MotorcycleCreatorName = "MotorcycleCreator";
+
+        private const string CarName = "Car";
+        private const string TruckName = "Truck";
+        private const string MotorcycleName = "Motorcycle";
+
         public override void Load()
         {
             Bind<DealershipEngine>().ToSelf().InSingletonScope();
@@ -45,9 +50,9 @@ namespace Dealership
 
             Bind<IComment>().To<Comment>();
             Bind<IUser>().To<User>();
-            Bind<Car>().ToSelf();
-            Bind<Motorcycle>().ToSelf();
-            Bind<Truck>().ToSelf();
+            Bind<IVehicle>().To<Car>().Named(CarName);
+            Bind<IVehicle>().To<Motorcycle>().Named(MotorcycleName);
+            Bind<IVehicle>().To<Truck>().Named(TruckName);
             Bind<Command>().ToSelf();
         }
     }

@@ -1,4 +1,5 @@
-﻿using Dealership.Models;
+﻿using Dealership.Contracts;
+using Dealership.Models;
 
 namespace Dealership.Factories
 {
@@ -11,6 +12,5 @@ namespace Dealership.Factories
 
 
         Truck CreateTruck(string make, string model, decimal price, int weightCapacity);
-
     }
 }
