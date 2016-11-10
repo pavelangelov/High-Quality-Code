@@ -1,7 +1,6 @@
 ﻿using NUnit.Framework;
 using Moq;
 
-using Dealership.Contracts;
 using Dealership.Common.Enums;
 using Dealership.Factories;
 using Dealership.Models;
