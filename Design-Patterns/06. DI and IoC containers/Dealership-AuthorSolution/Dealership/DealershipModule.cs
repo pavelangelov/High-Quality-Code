@@ -2,21 +2,17 @@
 using Dealership.Engine;
 using Dealership.Factories;
 using Dealership.Models;
+using Ninject;
 using Ninject.Extensions.Factory;
 using Ninject.Modules;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Dealership
 {
     public class DealershipModule : NinjectModule
     {
-        private const string CarVehicleName = "Car";
-        private const string TruckVehicleName = "Truck";
-        private const string MotorcycleVehicleName = "Motorcycle";
+        private const string CarCreatorName = "CarCreator";
+        private const string TruckCreatorName = "TruckCreator";
+        private const string MotorcycleCreatorName = "MotorcycleCreator";
         public override void Load()
         {
             Bind<DealershipEngine>().ToSelf().InSingletonScope();
@@ -30,6 +26,22 @@ namespace Dealership
 
             Bind<IReader>().To<ConsoleReader>();
             Bind<ILogger>().To<ConsoleLogger>();
+
+            Bind<IVehicleCreator>().To<CarCreator>().Named(CarCreatorName);
+            Bind<IVehicleCreator>().To<TruckCreator>().Named(TruckCreatorName);
+            Bind<IVehicleCreator>().To<MotorcycleCreator>().Named(MotorcycleCreatorName);
+
+            Bind<IVehicleCreator>().ToMethod(ctx =>
+            {
+                IVehicleCreator carCreator = ctx.Kernel.Get<IVehicleCreator>(CarCreatorName);
+                IVehicleCreator truckCreator = ctx.Kernel.Get<IVehicleCreator>(TruckCreatorName);
+                IVehicleCreator motorcycleCreator = ctx.Kernel.Get<IVehicleCreator>(MotorcycleCreatorName);
+
+                carCreator.SetSuccsessor(truckCreator);
+                truckCreator.SetSuccsessor(motorcycleCreator);
+
+                return carCreator;
+            }).WhenInjectedInto<IEngine>();
 
             Bind<IComment>().To<Comment>();
             Bind<IUser>().To<User>();

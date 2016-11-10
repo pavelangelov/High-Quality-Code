@@ -1,5 +1,4 @@
-﻿using Dealership.Common;
-using Dealership.Common.Enums;
+﻿using Dealership.Common.Enums;
 using Dealership.Contracts;
 using Dealership.Factories;
 using System;
@@ -42,15 +41,17 @@ namespace Dealership.Engine
 
         private IDealershipFactory dealershipFactory;
         private ICommandFactory commandFactory;
+        private IVehicleCreator vehicleCreator;
         private IReader reader;
         private ILogger logger;
         private ICollection<IUser> users;
         private IUser loggedUser;
 
-        public DealershipEngine(IDealershipFactory factory, ICommandFactory commandFactory, IReader reader, ILogger logger)
+        public DealershipEngine(IDealershipFactory factory, ICommandFactory commandFactory, IVehicleCreator vehicleCreator, IReader reader, ILogger logger)
         {
             this.dealershipFactory = factory;
             this.commandFactory = commandFactory;
+            this.vehicleCreator = vehicleCreator;
             this.reader = reader;
             this.logger = logger;
 
@@ -162,15 +163,7 @@ namespace Dealership.Engine
                     return this.Logout();
 
                 case "AddVehicle":
-                    var type = command.Parameters[0];
-                    var make = command.Parameters[1];
-                    var model = command.Parameters[2];
-                    var price = decimal.Parse(command.Parameters[3]);
-                    var additionalParam = command.Parameters[4];
-
-                    var typeEnum = (VehicleType)Enum.Parse(typeof(VehicleType), type, true);
-
-                    return this.AddVehicle(typeEnum, make, model, price, additionalParam);
+                    return this.AddVehicle(command);
 
                 case "RemoveVehicle":
                     var vehicleIndex = int.Parse(command.Parameters[0]) - 1;
@@ -248,22 +241,17 @@ namespace Dealership.Engine
             return UserLoggedOut;
         }
 
-        private string AddVehicle(VehicleType type, string make, string model, decimal price, string additionalParam)
+        private string AddVehicle(ICommand command)
         {
-            IVehicle vehicle = null;
+            var type = command.Parameters[0];
+            var make = command.Parameters[1];
+            var model = command.Parameters[2];
+            var price = decimal.Parse(command.Parameters[3]);
+            var additionalParam = command.Parameters[4];
 
-            if (type == VehicleType.Car)
-            {
-                vehicle = this.dealershipFactory.CreateCar(make, model, price, int.Parse(additionalParam));
-            }
-            else if (type == VehicleType.Motorcycle)
-            {
-                vehicle = this.dealershipFactory.CreateMotorcycle(make, model, price, additionalParam);
-            }
-            else if (type == VehicleType.Truck)
-            {
-                vehicle = this.dealershipFactory.CreateTruck(make, model, price, int.Parse(additionalParam));
-            }
+            var typeEnum = (VehicleType)Enum.Parse(typeof(VehicleType), type, true);
+
+            IVehicle vehicle = vehicleCreator.Create(typeEnum, make, model, price, additionalParam);
 
             this.loggedUser.AddVehicle(vehicle);
 

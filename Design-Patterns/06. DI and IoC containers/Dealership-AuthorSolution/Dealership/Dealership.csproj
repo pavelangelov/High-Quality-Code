@@ -69,6 +69,7 @@
     <Compile Include="Contracts\ITruck.cs" />
     <Compile Include="Contracts\IUser.cs" />
     <Compile Include="Contracts\IVehicle.cs" />
+    <Compile Include="Contracts\IVehicleCreator.cs" />
     <Compile Include="DealershipModule.cs" />
     <Compile Include="Engine\Command.cs" />
     <Compile Include="Engine\DealershipEngine.cs" />
@@ -81,13 +82,17 @@
     <Compile Include="Factories\IUserFactory.cs" />
     <Compile Include="Factories\IVehicleFactory.cs" />
     <Compile Include="Models\Car.cs" />
+    <Compile Include="Models\CarCreator.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\ConsoleLogger.cs" />
     <Compile Include="Models\ConsoleReader.cs" />
     <Compile Include="Models\Motorcycle.cs" />
+    <Compile Include="Models\MotorcycleCreator.cs" />
     <Compile Include="Models\Truck.cs" />
+    <Compile Include="Models\TruckCreator.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\Vehicle.cs" />
+    <Compile Include="Models\VehicleCreator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
